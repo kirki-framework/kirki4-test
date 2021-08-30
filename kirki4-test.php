@@ -91,7 +91,7 @@ function kirki4_controls() {
 		array(
 			'type'        => 'color',
 			'settings'    => 'color_setting_default',
-			'label'       => __( 'Color Control — Default', 'kirki' ),
+			'label'       => __( 'v3 & v4 — Default', 'kirki' ),
 			'description' => __( 'This is default color control without extra options.<br>Just like how devs might be using it in v3.', 'kirki' ),
 			'section'     => 'kirki_color_section',
 			'default'     => '#0088CC',
@@ -105,7 +105,7 @@ function kirki4_controls() {
 		array(
 			'type'        => 'color',
 			'settings'    => 'color_setting_alpha',
-			'label'       => __( 'Color Control — Alpha Enabled', 'kirki' ),
+			'label'       => __( 'v3 & v4 — Alpha Enabled', 'kirki' ),
 			'description' => __( 'This is color control with "alpha" choice enabled.<br>I think, it\'s very likely that devs are using this in v3.', 'kirki' ),
 			'section'     => 'kirki_color_section',
 			'default'     => '#ffff00',
@@ -126,7 +126,7 @@ function kirki4_controls() {
 		array(
 			'type'        => 'color',
 			'settings'    => 'color_setting_hex',
-			'label'       => __( 'Color Control — formComponent — HexColorPicker', 'kirki' ),
+			'label'       => __( 'v4 — formComponent — HexColorPicker', 'kirki' ),
 			'description' => esc_html__( 'This is a color control with formComponent value is HexColorPicker.', 'kirki' ),
 			'section'     => 'kirki_color_section',
 			'default'     => '#ffff00',
@@ -147,7 +147,7 @@ function kirki4_controls() {
 		array(
 			'type'        => 'color',
 			'settings'    => 'color_setting_rgb',
-			'label'       => __( 'Color Control — formComponent — RgbColorPicker', 'kirki' ),
+			'label'       => __( 'v4 — formComponent — RgbColorPicker', 'kirki' ),
 			'description' => esc_html__( 'This is a color control with formComponent value is RgbColorPicker.', 'kirki' ),
 			'section'     => 'kirki_color_section',
 			'default'     => '#ffff00',
@@ -168,7 +168,7 @@ function kirki4_controls() {
 		array(
 			'type'        => 'color',
 			'settings'    => 'color_setting_rgba',
-			'label'       => __( 'Color Control — formComponent — RgbaColorPicker', 'kirki' ),
+			'label'       => __( 'v4 — formComponent — RgbaColorPicker', 'kirki' ),
 			'description' => esc_html__( 'This is a color control with formComponent value is RgbaColorPicker.', 'kirki' ),
 			'section'     => 'kirki_color_section',
 			'default'     => '#ffff00',
@@ -189,7 +189,7 @@ function kirki4_controls() {
 		array(
 			'type'        => 'color',
 			'settings'    => 'color_setting_hsl',
-			'label'       => __( 'Color Control — formComponent — HslColorPicker', 'kirki' ),
+			'label'       => __( 'v4 — formComponent — HslColorPicker', 'kirki' ),
 			'description' => esc_html__( 'This is a color control with formComponent value is HslColorPicker.', 'kirki' ),
 			'section'     => 'kirki_color_section',
 			'default'     => 'hsl(206, 23%, 25%)',
@@ -210,7 +210,7 @@ function kirki4_controls() {
 		array(
 			'type'        => 'color',
 			'settings'    => 'color_setting_hsla',
-			'label'       => __( 'Color Control — formComponent — HslaColorPicker', 'kirki' ),
+			'label'       => __( 'v4 — formComponent — HslaColorPicker', 'kirki' ),
 			'description' => esc_html__( 'This is a color control with formComponent value is HslaColorPicker.', 'kirki' ),
 			'section'     => 'kirki_color_section',
 			'default'     => 'hsla(206, 23%, 25%, 0.7)',
