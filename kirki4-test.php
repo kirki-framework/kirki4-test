@@ -123,9 +123,9 @@ function kirki4_controls() {
 			'type'        => 'color',
 			'settings'    => 'color_setting_hue',
 			'label'       => __( 'v3 & v4 — Hue Mode', 'kirki' ),
-			'description' => __( "This is color control with hue-only mode ('mode' => 'hue').<br>This already exists since v3.", 'kirki' ),
+			'description' => __( "This is color control with hue-only mode ('mode' => 'hue').<br>This already exists since version < 4.", 'kirki' ),
 			'section'     => 'kirki_color_section',
-			'default'     => '#ffff00',
+			'default'     => 60,
 			'mode'        => 'hue',
 			'transport'   => 'postMessage',
 		)
