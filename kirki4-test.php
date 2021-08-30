@@ -116,6 +116,21 @@ function kirki4_controls() {
 		)
 	);
 
+	// Color control with alpha choices set to true.
+	Kirki::add_field(
+		'theme_config_id',
+		array(
+			'type'        => 'color',
+			'settings'    => 'color_setting_hue',
+			'label'       => __( 'v3 & v4 — Hue Mode', 'kirki' ),
+			'description' => __( "This is color control with hue-only mode ('mode' => 'hue').<br>This already exists since v3.", 'kirki' ),
+			'section'     => 'kirki_color_section',
+			'default'     => '#ffff00',
+			'mode'        => 'hue',
+			'transport'   => 'postMessage',
+		)
+	);
+
 	/**
 	 * Color control with formComponent value is HexColorPicker.
 	 * When formComponent is set, we ignore the "alpha" choice.
