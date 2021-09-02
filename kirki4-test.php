@@ -10,6 +10,8 @@
 
 defined( 'ABSPATH' ) || die( "Can't access directly" );
 
+// require_once __DIR__ . '/test.php';
+
 /**
  * Remove jQuery migrate script when SCRIPT_DEBUG is defined and the value is true.
  *
@@ -81,6 +83,16 @@ function kirki4_controls() {
 		)
 	);
 
+	// Background section.
+	Kirki::add_section(
+		'kirki_palette_section',
+		array(
+			'title'    => __( 'Color Palette Controls', 'kirki' ),
+			'panel'    => 'kirki_panel',
+			'priority' => 800,
+		)
+	);
+
 	/* Controls */
 
 	// Color.
@@ -94,7 +106,7 @@ function kirki4_controls() {
 			'label'       => __( 'v3 & v4 — Default', 'kirki' ),
 			'description' => __( 'This is default color control without extra options.<br>Just like how devs might be using it in v3.', 'kirki' ),
 			'section'     => 'kirki_color_section',
-			'default'     => '#0088CC',
+			'default'     => '#0000ff',
 			'transport'   => 'postMessage',
 		)
 	);
@@ -236,49 +248,6 @@ function kirki4_controls() {
 		)
 	);
 
-	// Stop here, we're still focusing on testing the color controls.
-	return;
-
-	// Background
-	Kirki::add_field(
-		'theme_config_id',
-		array(
-			'type'        => 'background',
-			'settings'    => 'background_setting',
-			'label'       => esc_html__( 'Background', 'kirki' ),
-			'description' => esc_html__( 'Background conrols are pretty complex - but extremely useful if used properly. Transport is set to auto for this control so postMessage scripts & frontend CSS is generated automatically and will apply to the body.', 'kirki' ),
-			'section'     => 'kirki_color_section',
-			'transport'   => 'postMessage',
-		)
-	);
-
-	return;
-
-	Kirki::add_field(
-		'theme_config_id',
-		array(
-			'type'        => 'background',
-			'settings'    => 'background_setting',
-			'label'       => esc_html__( 'Background', 'kirki' ),
-			'description' => esc_html__( 'Background conrols are pretty complex - but extremely useful if used properly. Transport is set to auto for this control so postMessage scripts & frontend CSS is generated automatically and will apply to the body.', 'kirki' ),
-			'section'     => 'kirki_color_section',
-			'default'     => array(
-				'background-color'      => '#fff',
-				'background-image'      => '',
-				'background-repeat'     => 'repeat',
-				'background-position'   => 'center center',
-				'background-size'       => 'cover',
-				'background-attachment' => 'scroll',
-			),
-			'transport'   => 'auto',
-			'output'      => array(
-				array(
-					'element' => 'body',
-				),
-			),
-		)
-	);
-
 	Kirki::add_field(
 		'theme_config_id',
 		array(
@@ -386,14 +355,35 @@ function kirki4_controls() {
 		)
 	);
 
+	// Background.
+	Kirki::add_field(
+		'theme_config_id',
+		array(
+			'type'        => 'background',
+			'settings'    => 'background_setting',
+			'label'       => esc_html__( 'Background', 'kirki' ),
+			'description' => esc_html__( 'Background conrols are pretty complex - but extremely useful if used properly. Transport is set to auto for this control so postMessage scripts & frontend CSS is generated automatically and will apply to the body.', 'kirki' ),
+			'section'     => 'kirki_bg_section',
+			'default'     => array(
+				'background-color'      => 'rgba(255, 255, 0, 0.7)',
+				'background-image'      => '',
+				'background-repeat'     => 'repeat',
+				'background-position'   => 'center center',
+				'background-size'       => 'cover',
+				'background-attachment' => 'scroll',
+			),
+			'transport'   => 'postMessage',
+		)
+	);
+
 	Kirki::add_field(
 		'theme_config_id',
 		array(
 			'type'        => 'color-palette',
 			'settings'    => 'color_palette_setting_1',
-			'label'       => esc_html__( 'Color Palette 1', 'kirki' ),
+			'label'       => esc_html__( 'Color Palette #1', 'kirki' ),
 			'description' => esc_html__( 'This is a color-palette control', 'kirki' ),
-			'section'     => 'kirki_color_section',
+			'section'     => 'kirki_palette_section',
 			'default'     => '#888888',
 			'choices'     => array(
 				'colors' => array( '#000000', '#222222', '#444444', '#666666', '#888888', '#aaaaaa', '#cccccc', '#eeeeee', '#ffffff' ),
@@ -407,24 +397,8 @@ function kirki4_controls() {
 		array(
 			'type'        => 'color-palette',
 			'settings'    => 'color_palette_setting_2',
-			'label'       => esc_html__( 'Color Palette 2', 'kirki' ),
-			'description' => esc_html__( 'Material Design Colors - all', 'kirki' ),
-			'section'     => 'kirki_color_section',
-			'default'     => '#F44336',
-			'choices'     => array(
-				'colors' => Kirki_Helper::get_material_design_colors( 'all' ),
-				'size'   => 20,
-			),
-		)
-	);
-
-	Kirki::add_field(
-		'theme_config_id',
-		array(
-			'type'        => 'color-palette',
-			'settings'    => 'color_palette_setting_3',
-			'label'       => esc_html__( 'Color Palette 3', 'kirki' ),
-			'description' => esc_html__( 'Material Design Colors - primary', 'kirki' ),
+			'label'       => esc_html__( 'Color Palette #2', 'kirki' ),
+			'description' => esc_html__( 'Material Design Colors - Primary', 'kirki' ),
 			'section'     => 'kirki_color_section',
 			'default'     => '#000000',
 			'choices'     => array(
@@ -438,9 +412,9 @@ function kirki4_controls() {
 		'theme_config_id',
 		array(
 			'type'        => 'color-palette',
-			'settings'    => 'color_palette_setting_4',
-			'label'       => esc_html__( 'Color Palette 4', 'kirki' ),
-			'description' => esc_html__( 'Material Design Colors - red', 'kirki' ),
+			'settings'    => 'color_palette_setting_3',
+			'label'       => esc_html__( 'Color Palette #3', 'kirki' ),
+			'description' => esc_html__( 'Material Design Colors - Red', 'kirki' ),
 			'section'     => 'kirki_color_section',
 			'default'     => '#FF1744',
 			'choices'     => array(
@@ -454,8 +428,8 @@ function kirki4_controls() {
 		'theme_config_id',
 		array(
 			'type'        => 'color-palette',
-			'settings'    => 'color_palette_setting_5',
-			'label'       => esc_html__( 'Color Palette 5', 'kirki' ),
+			'settings'    => 'color_palette_setting_4',
+			'label'       => esc_html__( 'Color Palette #4', 'kirki' ),
 			'description' => esc_html__( 'Material Design Colors - A100', 'kirki' ),
 			'section'     => 'kirki_color_section',
 			'default'     => '#FF80AB',
@@ -466,6 +440,24 @@ function kirki4_controls() {
 			),
 		)
 	);
+
+	Kirki::add_field(
+		'theme_config_id',
+		array(
+			'type'        => 'color-palette',
+			'settings'    => 'color_palette_setting_2',
+			'label'       => esc_html__( 'Color Palette #2', 'kirki' ),
+			'description' => esc_html__( 'Material Design Colors - All', 'kirki' ),
+			'section'     => 'kirki_color_section',
+			'default'     => '#F44336',
+			'choices'     => array(
+				'colors' => Kirki_Helper::get_material_design_colors( 'all' ),
+				'size'   => 20,
+			),
+		)
+	);
+
+	return;
 
 	Kirki::add_field(
 		'theme_config_id',
