@@ -95,7 +95,7 @@ $sections = [
 	'select'          => [ esc_html__( 'Select', 'kirki' ), '' ],
 	'slider'          => [ esc_html__( 'Slider', 'kirki' ), '' ],
 	'sortable'        => [ esc_html__( 'Sortable', 'kirki' ), '' ],
-	'switch'          => [ esc_html__( 'Switch', 'kirki' ), '', 'outer' ],
+	'switch'          => [ esc_html__( 'Switch & Toggle', 'kirki' ), '', 'outer' ],
 	'typography'      => [ esc_html__( 'Typography', 'kirki' ), '' ],
 ];
 foreach ( $sections as $section_id => $section ) {
@@ -579,7 +579,17 @@ new \Kirki\Field\Dropdown_Pages(
 new \Kirki\Field\Text(
 	[
 		'settings'    => 'generic_text_setting',
-		'label'       => esc_html__( 'Text Control', 'kirki' ),
+		'label'       => esc_html__( 'Generic Control — Text Field', 'kirki' ),
+		'description' => esc_html__( 'Description', 'kirki' ),
+		'section'     => 'generic_section',
+		'default'     => '',
+	]
+);
+
+new \Kirki\Field\URL(
+	[
+		'settings'    => 'generic_url_setting',
+		'label'       => esc_html__( 'Generic Control — URL Field', 'kirki' ),
 		'description' => esc_html__( 'Description', 'kirki' ),
 		'section'     => 'generic_section',
 		'default'     => '',
@@ -589,7 +599,7 @@ new \Kirki\Field\Text(
 new \Kirki\Field\Textarea(
 	[
 		'settings'    => 'generic_textarea_setting',
-		'label'       => esc_html__( 'Textarea Control', 'kirki' ),
+		'label'       => esc_html__( 'Generic Control — Textarea Field', 'kirki' ),
 		'description' => esc_html__( 'Description', 'kirki' ),
 		'section'     => 'generic_section',
 		'default'     => '',
@@ -599,7 +609,7 @@ new \Kirki\Field\Textarea(
 new \Kirki\Field\Generic(
 	[
 		'settings'    => 'generic_custom_setting',
-		'label'       => esc_html__( 'Custom input Control.', 'kirki' ),
+		'label'       => esc_html__( 'Generic Control — Custom Input.', 'kirki' ),
 		'description' => esc_html__( 'The "generic" control allows you to add any input type you want. In this case we use type="password" and define custom styles.', 'kirki' ),
 		'section'     => 'generic_section',
 		'default'     => '',
@@ -921,10 +931,19 @@ new \Kirki\Field\Sortable(
 /**
  * Switch control.
  */
+Kirki::add_field( 'theme_config_id', [
+	'type'        => 'toggle',
+	'settings'    => 'toggle_setting',
+	'label'       => esc_html__( 'Toggle Field', 'kirki' ),
+	'section'     => 'switch_section',
+	'default'     => '1',
+	'priority'    => 10,
+] );
+
 new \Kirki\Field\Checkbox_Switch(
 	[
 		'settings'    => 'switch_setting',
-		'label'       => esc_html__( 'Switch Control', 'kirki' ),
+		'label'       => esc_html__( 'Switch Field', 'kirki' ),
 		'description' => esc_html__( 'Description', 'kirki' ),
 		'section'     => 'switch_section',
 		'default'     => true,
@@ -934,7 +953,7 @@ new \Kirki\Field\Checkbox_Switch(
 new \Kirki\Field\Checkbox_Switch(
 	[
 		'settings'        => 'switch_setting_custom_label',
-		'label'           => esc_html__( 'Switch Control with custom labels', 'kirki' ),
+		'label'           => esc_html__( 'Switch Field — With custom labels', 'kirki' ),
 		'description'     => esc_html__( 'Description', 'kirki' ),
 		'section'         => 'switch_section',
 		'default'         => true,
