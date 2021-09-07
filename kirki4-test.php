@@ -97,6 +97,7 @@ $sections = [
 	'sortable'        => [ esc_html__( 'Sortable', 'kirki' ), '' ],
 	'switch'          => [ esc_html__( 'Switch & Toggle', 'kirki' ), '', 'outer' ],
 	'typography'      => [ esc_html__( 'Typography', 'kirki' ), '' ],
+	'upload'          => [ esc_html__( 'Upload', 'kirki' ), '' ],
 ];
 foreach ( $sections as $section_id => $section ) {
 	$section_args = [
@@ -658,6 +659,20 @@ new \Kirki\Field\Image(
 		'choices'     => [
 			'save_as' => 'array',
 		],
+	]
+);
+
+/**
+ * Upload control.
+ */
+new \Kirki\Field\Upload(
+	[
+		'settings'    => 'upload_setting_url',
+		'label'       => esc_html__( 'Upload Control (URL)', 'kirki' ),
+		'description' => esc_html__( 'Description Here.', 'kirki' ),
+		'section'     => 'upload_section',
+		'default'     => '',
+		'transport'   => 'postMessage',
 	]
 );
 
