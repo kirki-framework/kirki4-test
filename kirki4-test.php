@@ -916,7 +916,7 @@ new \Kirki\Field\Select(
 /**
  * Slider Control.
  */
-new \Kirki\Field\Slider(
+new \Kirki\Field\RangeSlider(
 	[
 		'settings'    => 'slider_setting',
 		'label'       => esc_html__( 'Slider Control', 'kirki' ),
