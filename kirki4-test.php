@@ -362,6 +362,15 @@ new \Kirki\Field\Date(
 		'default'     => '',
 	]
 );
+new \Kirki\Field\Date(
+	[
+		'settings'    => 'date_setting2',
+		'label'       => esc_html__( 'Date Control 2', 'kirki' ),
+		'description' => esc_html__( 'This is a date control.', 'kirki' ),
+		'section'     => 'date_section',
+		'default'     => '',
+	]
+);
 
 /**
  * Editor Controls
@@ -914,6 +923,7 @@ new \Kirki\Field\Slider(
 		'description' => esc_html__( 'The description here.', 'kirki' ),
 		'section'     => 'slider_section',
 		'default'     => '10',
+		'transport'   => 'postMessage',
 		'choices'     => [
 			'min'    => 0,
 			'max'    => 20,
