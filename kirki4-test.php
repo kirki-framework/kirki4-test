@@ -1,5 +1,8 @@
 <?php
 /**
+ * Plugin Name: Kirki4 Test
+ * Description: This is a test plugin for Kirki4.
+ *
  * An example file demonstrating how to add all controls.
  *
  * @package     Kirki
