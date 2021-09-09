@@ -38,7 +38,7 @@ function kirki4_test_remove_jquery_migrate( $scripts ) {
 
 		// Check whether the script has any dependencies
 		if ( $script->deps ) {
-			$script->deps = array_diff( $script->deps, array( 'jquery-migrate' ) );
+			$script->deps = array_diff( $script->deps, [ 'jquery-migrate' ] );
 		}
 	}
 }
@@ -123,34 +123,34 @@ new \Kirki\Section(
 
 // Default color control.
 new \Kirki\Field\Color(
-	array(
+	[
 		'settings'    => 'color2_setting_default',
 		'label'       => __( 'v3 & v4 — Default', 'kirki' ),
 		'description' => __( 'This is default color control without extra options.<br>Just like how devs might be using it in v3.', 'kirki' ),
 		'section'     => 'color2_section',
 		'default'     => '#0000ff',
 		'transport'   => 'postMessage',
-	)
+	]
 );
 
 // Color control with alpha choices set to true.
 new \Kirki\Field\Color(
-	array(
+	[
 		'settings'    => 'color2_setting_alpha',
 		'label'       => __( 'v3 & v4 — Alpha Enabled', 'kirki' ),
 		'description' => __( 'This is color control with "alpha" choice enabled.<br>I think, it\'s very likely that devs are using this in v3.', 'kirki' ),
 		'section'     => 'color2_section',
 		'default'     => '',
-		'choices'     => array(
+		'choices'     => [
 			'alpha' => true,
-		),
+		],
 		'transport'   => 'postMessage',
-	)
+	]
 );
 
 // Color control with alpha choices set to true.
 new \Kirki\Field\Color(
-	array(
+	[
 		'settings'    => 'color2_setting_hue',
 		'label'       => __( 'v3 & v4 — Hue Mode', 'kirki' ),
 		'description' => __( "This is color control with hue-only mode ('mode' => 'hue').<br>This already exists since version < 4.", 'kirki' ),
@@ -158,7 +158,7 @@ new \Kirki\Field\Color(
 		// 'default'     => 60,
 		'mode'        => 'hue',
 		'transport'   => 'postMessage',
-	)
+	]
 );
 
 /**
@@ -167,17 +167,17 @@ new \Kirki\Field\Color(
  * They can set it, but it will be ignored.
  */
 new \Kirki\Field\Color(
-	array(
+	[
 		'settings'    => 'color2_setting_hex',
 		'label'       => __( 'v4 — formComponent — HexColorPicker', 'kirki' ),
 		'description' => esc_html__( 'This is a color control with formComponent value is HexColorPicker.', 'kirki' ),
 		'section'     => 'color2_section',
 		'default'     => '#ffff00',
-		'choices'     => array(
+		'choices'     => [
 			'formComponent' => 'HexColorPicker',
-		),
+		],
 		'transport'   => 'postMessage',
-	)
+	]
 );
 
 /**
@@ -186,17 +186,17 @@ new \Kirki\Field\Color(
  * They can set it, but it will be ignored.
  */
 new \Kirki\Field\Color(
-	array(
+	[
 		'settings'    => 'color2_setting_rgb',
 		'label'       => __( 'v4 — formComponent — RgbColorPicker', 'kirki' ),
 		'description' => esc_html__( 'This is a color control with formComponent value is RgbColorPicker.', 'kirki' ),
 		'section'     => 'color2_section',
 		'default'     => '#ffff00',
-		'choices'     => array(
+		'choices'     => [
 			'formComponent' => 'RgbColorPicker',
-		),
+		],
 		'transport'   => 'postMessage',
-	)
+	]
 );
 
 /**
@@ -205,17 +205,17 @@ new \Kirki\Field\Color(
  * They can set it, but it will be ignored.
  */
 new \Kirki\Field\Color(
-	array(
+	[
 		'settings'    => 'color2_setting_rgba',
 		'label'       => __( 'v4 — formComponent — RgbaColorPicker', 'kirki' ),
 		'description' => esc_html__( 'This is a color control with formComponent value is RgbaColorPicker.', 'kirki' ),
 		'section'     => 'color2_section',
 		'default'     => '#ffff00',
-		'choices'     => array(
+		'choices'     => [
 			'formComponent' => 'RgbaColorPicker',
-		),
+		],
 		'transport'   => 'postMessage',
-	)
+	]
 );
 
 /**
@@ -224,17 +224,17 @@ new \Kirki\Field\Color(
  * They can set it, but it will be ignored.
  */
 new \Kirki\Field\Color(
-	array(
+	[
 		'settings'    => 'color2_setting_hsl',
 		'label'       => __( 'v4 — formComponent — HslColorPicker', 'kirki' ),
 		'description' => esc_html__( 'This is a color control with formComponent value is HslColorPicker.', 'kirki' ),
 		'section'     => 'color2_section',
 		'default'     => 'hsl(206, 23%, 25%)',
-		'choices'     => array(
+		'choices'     => [
 			'formComponent' => 'HslColorPicker',
-		),
+		],
 		'transport'   => 'postMessage',
-	)
+	]
 );
 
 /**
@@ -243,17 +243,17 @@ new \Kirki\Field\Color(
  * They can set it, but it will be ignored.
  */
 new \Kirki\Field\Color(
-	array(
+	[
 		'settings'    => 'color2_setting_hsla',
 		'label'       => __( 'v4 — formComponent — HslaColorPicker', 'kirki' ),
 		'description' => esc_html__( 'This is a color control with formComponent value is HslaColorPicker.', 'kirki' ),
 		'section'     => 'color2_section',
 		'default'     => 'hsla(206, 23%, 25%, 0.7)',
-		'choices'     => array(
+		'choices'     => [
 			'formComponent' => 'HslaColorPicker',
-		),
+		],
 		'transport'   => 'postMessage',
-	)
+	]
 );
 
 /**
@@ -916,7 +916,7 @@ new \Kirki\Field\Select(
 /**
  * Slider Control.
  */
-new \Kirki\Field\RangeSlider(
+new \Kirki\Field\Slider(
 	[
 		'settings'    => 'slider_setting',
 		'label'       => esc_html__( 'Slider Control', 'kirki' ),
@@ -925,10 +925,26 @@ new \Kirki\Field\RangeSlider(
 		'default'     => '10',
 		'transport'   => 'postMessage',
 		'choices'     => [
-			'min'    => 0,
-			'max'    => 20,
-			'step'   => 1,
-			'suffix' => 'px',
+			'min'  => 0,
+			'max'  => 100,
+			'step' => 1,
+		],
+	]
+);
+
+Kirki::add_field(
+	'theme_config_id',
+	[
+		'type'        => 'slider',
+		'settings'    => 'slider_setting_old',
+		'label'       => esc_html__( 'Slider Control — Using Old Way', 'kirki' ),
+		'description' => 'Added using `Kirki::add_field`',
+		'section'     => 'slider_section',
+		'transport'   => 'postMessage',
+		'choices'     => [
+			'min'  => 0,
+			'max'  => 100,
+			'step' => 0.5,
 		],
 	]
 );
@@ -956,14 +972,17 @@ new \Kirki\Field\Sortable(
 /**
  * Switch control.
  */
-Kirki::add_field( 'theme_config_id', [
-	'type'        => 'toggle',
-	'settings'    => 'toggle_setting',
-	'label'       => esc_html__( 'Toggle Field', 'kirki' ),
-	'section'     => 'switch_section',
-	'default'     => '1',
-	'priority'    => 10,
-] );
+Kirki::add_field(
+	'theme_config_id',
+	[
+		'type'     => 'toggle',
+		'settings' => 'toggle_setting',
+		'label'    => esc_html__( 'Toggle Field', 'kirki' ),
+		'section'  => 'switch_section',
+		'default'  => '1',
+		'priority' => 10,
+	]
+);
 
 new \Kirki\Field\Checkbox_Switch(
 	[
