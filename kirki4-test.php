@@ -72,7 +72,7 @@ $sections = [
 	'checkbox'        => [ esc_html__( 'Checkbox', 'kirki' ), '' ],
 	'color'           => [ esc_html__( 'Color', 'kirki' ), '' ],
 	'color2'          => [ esc_html__( 'Color (v3 & v4)', 'kirki' ), '' ],
-	'color-palette'   => [ esc_html__( 'Color Palette', 'kirki' ), '' ],
+	'color_palette'   => [ esc_html__( 'Color Palette', 'kirki' ), '' ],
 	'custom'          => [ esc_html__( 'Custom', 'kirki' ), '' ],
 	'dashicons'       => [ esc_html__( 'Dashicons', 'kirki' ), '' ],
 	'date'            => [ esc_html__( 'Date', 'kirki' ), '' ],
@@ -86,7 +86,6 @@ $sections = [
 	'multicheck'      => [ esc_html__( 'Multicheck', 'kirki' ), '' ],
 	'multicolor'      => [ esc_html__( 'Multicolor', 'kirki' ), '' ],
 	'number'          => [ esc_html__( 'Number', 'kirki' ), '' ],
-	'palette'         => [ esc_html__( 'Palette', 'kirki' ), '' ],
 	'preset'          => [ esc_html__( 'Preset', 'kirki' ), '' ],
 	'radio'           => [ esc_html__( 'Radio', 'kirki' ), esc_html__( 'A plain Radio control.', 'kirki' ) ],
 	'radio-buttonset' => [ esc_html__( 'Radio Buttonset', 'kirki' ), esc_html__( 'Radio-Buttonset controls are essentially radio controls with some fancy styling to make them look cooler.', 'kirki' ) ],
@@ -400,13 +399,14 @@ new \Kirki\Field\Editor(
  *
  * @link https://kirki.org/docs/controls/color-palette.html
  */
-new \Kirki\Field\ColorPalette(
+new \Kirki\Field\Color_Palette(
 	[
-		'settings'    => 'color_palette_setting_0',
-		'label'       => esc_html__( 'Color-Palette', 'kirki' ),
-		'description' => esc_html__( 'This is a color-palette control', 'kirki' ),
+		'settings'    => 'color_palette_setting__simple',
+		'label'       => esc_html__( 'Simple Colors Set', 'kirki' ),
+		'description' => esc_html__( 'With default size (28). The `size` here is inner size (without border)', 'kirki' ),
 		'section'     => 'color_palette_section',
 		'default'     => '#888888',
+		'transport'   => 'postMessage',
 		'choices'     => [
 			'colors' => [ '#000000', '#222222', '#444444', '#666666', '#888888', '#aaaaaa', '#cccccc', '#eeeeee', '#ffffff' ],
 			'style'  => 'round',
@@ -414,27 +414,28 @@ new \Kirki\Field\ColorPalette(
 	]
 );
 
-new \Kirki\Field\ColorPalette(
+new \Kirki\Field\Color_Palette(
 	[
-		'settings'    => 'color_palette_setting_4',
-		'label'       => esc_html__( 'Color-Palette', 'kirki' ),
-		'description' => esc_html__( 'Material Design Colors - all', 'kirki' ),
+		'settings'    => 'color_palette_setting__material_all',
+		'label'       => esc_html__( 'Material Design Colors — All', 'kirki' ),
+		'description' => esc_html__( 'Showing all material design colors using `round` shape and size is 17', 'kirki' ),
 		'section'     => 'color_palette_section',
-		'default'     => '#F44336',
+		'default'     => '#D1C4E9',
+		'transport'   => 'postMessage',
 		'choices'     => [
 			'colors' => Helper::get_material_design_colors( 'all' ),
+			'shape'  => 'round',
 			'size'   => 17,
 		],
 	]
 );
 
-new \Kirki\Field\ColorPalette(
+new \Kirki\Field\Color_Palette(
 	[
-		'settings'    => 'color_palette_setting_1',
-		'label'       => esc_html__( 'Color-Palette', 'kirki' ),
-		'description' => esc_html__( 'Material Design Colors - primary', 'kirki' ),
+		'settings'    => 'color_palette_setting__material_primary',
+		'label'       => esc_html__( 'Material Design Colors — Primary', 'kirki' ),
+		'description' => esc_html__( 'Showing primary material design colors', 'kirki' ),
 		'section'     => 'color_palette_section',
-		'default'     => '#000000',
 		'choices'     => [
 			'colors' => Helper::get_material_design_colors( 'primary' ),
 			'size'   => 25,
@@ -442,13 +443,12 @@ new \Kirki\Field\ColorPalette(
 	]
 );
 
-new \Kirki\Field\ColorPalette(
+new \Kirki\Field\Color_Palette(
 	[
-		'settings'    => 'color_palette_setting_2',
-		'label'       => esc_html__( 'Color-Palette', 'kirki' ),
-		'description' => esc_html__( 'Material Design Colors - red', 'kirki' ),
+		'settings'    => 'color_palette_setting__material_red',
+		'label'       => esc_html__( 'Material Design Colors — Red', 'kirki' ),
+		'description' => esc_html__( 'Showing red material design colors', 'kirki' ),
 		'section'     => 'color_palette_section',
-		'default'     => '#FF1744',
 		'choices'     => [
 			'colors' => Helper::get_material_design_colors( 'red' ),
 			'size'   => 16,
@@ -456,16 +456,32 @@ new \Kirki\Field\ColorPalette(
 	]
 );
 
-new \Kirki\Field\ColorPalette(
+new \Kirki\Field\Color_Palette(
 	[
-		'settings'    => 'color_palette_setting_3',
-		'label'       => esc_html__( 'Color-Palette', 'kirki' ),
-		'description' => esc_html__( 'Material Design Colors - A100', 'kirki' ),
+		'settings'    => 'color_palette_setting__a100',
+		'label'       => esc_html__( 'Material Design Colors — A100', 'kirki' ),
+		'description' => esc_html__( 'Showing "A100" variant of material design colors', 'kirki' ),
 		'section'     => 'color_palette_section',
 		'default'     => '#FF80AB',
 		'choices'     => [
 			'colors' => Helper::get_material_design_colors( 'A100' ),
 			'size'   => 60,
+			'style'  => 'round',
+		],
+	]
+);
+
+Kirki::add_field(
+	'theme_config_id',
+	[
+		'type'        => 'color-palette',
+		'settings'    => 'color_palette_setting__old',
+		'label'       => 'The Old Way',
+		'description' => 'Using `Kirki::add_field` in round shape',
+		'section'     => 'color_palette_section',
+		'transport'   => 'postMessage',
+		'choices'     => [
+			'colors' => [ '#000000', '#222222', '#444444', '#666666', '#888888', '#aaaaaa', '#cccccc', '#eeeeee', '#ffffff' ],
 			'style'  => 'round',
 		],
 	]
@@ -741,24 +757,6 @@ new \Kirki\Field\Number(
 			'min'  => -5,
 			'max'  => 5,
 			'step' => 1,
-		],
-	]
-);
-
-/**
- * Palette Control.
- */
-new \Kirki\Field\Palette(
-	[
-		'settings' => 'palette_setting',
-		'label'    => esc_html__( 'Palette Control', 'kirki' ),
-		'section'  => 'palette_section',
-		'default'  => 'blue',
-		'choices'  => [
-			'a200'  => Helper::get_material_design_colors( 'A200' ),
-			'blue'  => Helper::get_material_design_colors( 'blue' ),
-			'green' => [ '#E8F5E9', '#C8E6C9', '#A5D6A7', '#81C784', '#66BB6A', '#4CAF50', '#43A047', '#388E3C', '#2E7D32', '#1B5E20', '#B9F6CA', '#69F0AE', '#00E676', '#00C853' ],
-			'bnw'   => [ '#000000', '#ffffff' ],
 		],
 	]
 );
