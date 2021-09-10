@@ -97,7 +97,8 @@ $sections = [
 	'select'          => [ esc_html__( 'Select', 'kirki' ), '' ],
 	'slider'          => [ esc_html__( 'Slider', 'kirki' ), '' ],
 	'sortable'        => [ esc_html__( 'Sortable', 'kirki' ), '' ],
-	'switch'          => [ esc_html__( 'Switch & Toggle', 'kirki' ), '', 'outer' ],
+	'switch'          => [ esc_html__( 'Switch', 'kirki' ), '', 'outer' ],
+	'toggle'          => [ esc_html__( 'Toggle', 'kirki' ), '', 'outer' ],
 	'typography'      => [ esc_html__( 'Typography', 'kirki' ), '' ],
 	'upload'          => [ esc_html__( 'Upload', 'kirki' ), '' ],
 ];
@@ -974,18 +975,6 @@ new \Kirki\Field\Sortable(
 /**
  * Switch control.
  */
-Kirki::add_field(
-	'theme_config_id',
-	[
-		'type'     => 'toggle',
-		'settings' => 'toggle_setting',
-		'label'    => esc_html__( 'Toggle Field', 'kirki' ),
-		'section'  => 'switch_section',
-		'default'  => '1',
-		'priority' => 10,
-	]
-);
-
 new \Kirki\Field\Checkbox_Switch(
 	[
 		'settings'    => 'switch_setting',
@@ -1014,6 +1003,23 @@ new \Kirki\Field\Checkbox_Switch(
 				'value'    => true,
 			],
 		],
+	]
+);
+
+/**
+ * Toggle control.
+ */
+Kirki::add_field(
+	'theme_config_id',
+	[
+		'type'        => 'toggle',
+		'settings'    => 'toggle_setting',
+		'label'       => esc_html__( 'Toggle Field', 'kirki' ),
+		'description' => esc_html__( 'Toggle is just utilizing switch control but without the text', 'kirki' ),
+		'section'     => 'toggle_section',
+		'default'     => '1',
+		'priority'    => 10,
+		'transport'   => 'postMessage',
 	]
 );
 
