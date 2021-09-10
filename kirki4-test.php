@@ -729,17 +729,18 @@ new \Kirki\Field\Multicheck(
  */
 new \Kirki\Field\Multicolor(
 	[
-		'settings' => 'multicolor_setting',
-		'label'    => esc_html__( 'Multicolor Control', 'kirki' ),
-		'section'  => 'multicolor_section',
-		'priority' => 10,
-		'choices'  => [
+		'settings'  => 'multicolor_setting',
+		'label'     => esc_html__( 'Multicolor Control', 'kirki' ),
+		'section'   => 'multicolor_section',
+		'priority'  => 10,
+		'transport' => 'postMessage',
+		'choices'   => [
 			'link'   => esc_html__( 'Color', 'kirki' ),
 			'hover'  => esc_html__( 'Hover', 'kirki' ),
 			'active' => esc_html__( 'Active', 'kirki' ),
 		],
-		'alpha'    => true,
-		'default'  => [
+		'alpha'     => true,
+		'default'   => [
 			'link'   => '#0088cc',
 			'hover'  => '#00aaff',
 			'active' => '#00ffff',
