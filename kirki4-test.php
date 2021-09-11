@@ -979,8 +979,9 @@ new \Kirki\Field\Checkbox_Switch(
 	[
 		'settings'    => 'switch_setting',
 		'label'       => esc_html__( 'Switch Field', 'kirki' ),
-		'description' => esc_html__( 'Description', 'kirki' ),
+		'description' => esc_html__( 'Simple switch control', 'kirki' ),
 		'section'     => 'switch_section',
+		'transport'   => 'postMessage',
 		'default'     => true,
 	]
 );
@@ -989,7 +990,7 @@ new \Kirki\Field\Checkbox_Switch(
 	[
 		'settings'        => 'switch_setting_custom_label',
 		'label'           => esc_html__( 'Switch Field — With custom labels', 'kirki' ),
-		'description'     => esc_html__( 'Description', 'kirki' ),
+		'description'     => esc_html__( 'Switch control using custom labels', 'kirki' ),
 		'section'         => 'switch_section',
 		'default'         => true,
 		'choices'         => [
@@ -1015,7 +1016,7 @@ Kirki::add_field(
 		'type'        => 'toggle',
 		'settings'    => 'toggle_setting',
 		'label'       => esc_html__( 'Toggle Field', 'kirki' ),
-		'description' => esc_html__( 'Toggle is just utilizing switch control but without the text', 'kirki' ),
+		'description' => esc_html__( 'Toggle is just utilizing switch control but aligned horizontally & without the text', 'kirki' ),
 		'section'     => 'toggle_section',
 		'default'     => '1',
 		'priority'    => 10,
