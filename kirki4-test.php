@@ -723,9 +723,23 @@ new \Kirki\Field\Dimensions(
 
 new \Kirki\Field\Dimensions(
 	[
+		'settings'    => 'padding_0',
+		'label'       => esc_html__( 'Padding Control', 'kirki' ),
+		'description' => esc_html__( 'Please set the padding for the element.', 'kirki' ),
+		'section'     => 'dimensions_section',
+		'default'     => [
+			'top'        => '1em',
+			'bottom'     => '10rem',
+			'horizontal' => '1vh',
+		],
+	]
+);
+
+new \Kirki\Field\Dimensions(
+	[
 		'settings'    => 'spacing_0',
 		'label'       => esc_html__( 'Spacing Control', 'kirki' ),
-		'description' => esc_html__( 'Description Here.', 'kirki' ),
+		'description' => esc_html__( 'Please set the spacing for the element.', 'kirki' ),
 		'section'     => 'dimensions_section',
 		'default'     => [
 			'top'    => '1em',
