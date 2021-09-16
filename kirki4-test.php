@@ -1201,11 +1201,12 @@ new \Kirki\Field\Typography(
 		'default'     => [
 			'font-family'     => 'Roboto',
 			'variant'         => 'regular',
-			'font-size'       => '14px',
 			'font-style'      => 'normal',
+			'color'           => '#333333',
+			'font-size'       => '14px',
 			'line-height'     => '1.5',
 			'letter-spacing'  => '0',
-			'color'           => '#333333',
+			'word-spacing'    => 'normal',
 			'text-transform'  => 'none',
 			'text-decoration' => 'none',
 			'text-align'      => 'left',
@@ -1246,24 +1247,24 @@ new \Kirki\Field\Typography(
 	]
 );
 
-new \Kirki\Field\Typography(
-	[
-		'settings'    => 'typography_setting_1',
-		'label'       => esc_html__( 'Typography Control', 'kirki' ),
-		'description' => esc_html__( 'Just the font-family and font-weight.', 'kirki' ),
-		'section'     => 'typography_section',
-		'priority'    => 10,
-		'transport'   => 'auto',
-		'default'     => [
-			'font-family' => 'Roboto',
-		],
-		'output'      => [
-			[
-				'element' => [ 'h1', 'h2', 'h3', 'h4', 'h5', 'h6' ],
-			],
-		],
-	]
-);
+// new \Kirki\Field\Typography(
+// 	[
+// 		'settings'    => 'typography_setting_1',
+// 		'label'       => esc_html__( 'Typography Control', 'kirki' ),
+// 		'description' => esc_html__( 'Just the font-family and font-weight.', 'kirki' ),
+// 		'section'     => 'typography_section',
+// 		'priority'    => 10,
+// 		'transport'   => 'auto',
+// 		'default'     => [
+// 			'font-family' => 'Roboto',
+// 		],
+// 		'output'      => [
+// 			[
+// 				'element' => [ 'h1', 'h2', 'h3', 'h4', 'h5', 'h6' ],
+// 			],
+// 		],
+// 	]
+// );
 
 /**
  * Example function that creates a control containing the available sidebars as choices.
