@@ -48,6 +48,14 @@ function kirki4_test_remove_jquery_migrate( $scripts ) {
 add_action( 'wp_default_scripts', 'kirki4_test_remove_jquery_migrate', 99999 );
 
 /**
+ * Let's stop WordPress heartbeat request for easier testing.
+ */
+function kirki_stop_heartbeat() {
+	wp_deregister_script( 'heartbeat' );
+}
+add_action( 'init', 'kirki_stop_heartbeat', 1 );
+
+/**
  * Add a panel.
  *
  * @link https://kirki.org/docs/getting-started/panels.html
@@ -276,7 +284,7 @@ new \Kirki\Field\Color(
 		'section'     => 'color_advanced_section',
 		'default'     => '#ffff00',
 		'choices'     => [
-			// When using formComponent, we ignore "alpha" and "save_as" choices.
+			// When using formComponent, we ignore 'alpha' and 'save_as' choices .
 			'formComponent' => 'HexColorPicker',
 		],
 		'transport'   => 'postMessage',
@@ -306,7 +314,7 @@ new \Kirki\Field\Color(
 		'section'     => 'color_advanced_section',
 		'default'     => '#ffff00',
 		'choices'     => [
-			// When using formComponent, we ignore "alpha" and "save_as" choices.
+			// When using formComponent, we ignore 'alpha' and 'save_as' choices .
 			'formComponent' => 'RgbColorPicker',
 		],
 		'transport'   => 'postMessage',
@@ -331,7 +339,7 @@ new \Kirki\Field\Color(
 		'section'     => 'color_advanced_section',
 		'default'     => '#ffff00',
 		'choices'     => [
-			// When using formComponent, we ignore "alpha" and "save_as" choices.
+			// When using formComponent, we ignore 'alpha' and 'save_as' choices .
 			'formComponent' => 'RgbStringColorPicker',
 		],
 		'transport'   => 'postMessage',
@@ -361,7 +369,7 @@ new \Kirki\Field\Color(
 		'section'     => 'color_advanced_section',
 		'default'     => '#ffff00',
 		'choices'     => [
-			// When using formComponent, we ignore "alpha" and "save_as" choices.
+			// When using formComponent, we ignore 'alpha' and 'save_as' choices .
 			'formComponent' => 'RgbaColorPicker',
 		],
 		'transport'   => 'postMessage',
@@ -386,7 +394,7 @@ new \Kirki\Field\Color(
 		'section'     => 'color_advanced_section',
 		'default'     => '#ffff00',
 		'choices'     => [
-			// When using formComponent, we ignore "alpha" and "save_as" choices.
+			// When using formComponent, we ignore 'alpha' and 'save_as' choices .
 			'formComponent' => 'RgbaStringColorPicker',
 		],
 		'transport'   => 'postMessage',
@@ -415,7 +423,7 @@ new \Kirki\Field\Color(
 		'section'     => 'color_advanced_section',
 		'default'     => 'hsl(206, 23%, 25%)',
 		'choices'     => [
-			// When using formComponent, we ignore "alpha" and "save_as" choices.
+			// When using formComponent, we ignore 'alpha' and 'save_as' choices .
 			'formComponent' => 'HslColorPicker',
 		],
 		'transport'   => 'postMessage',
@@ -440,7 +448,7 @@ new \Kirki\Field\Color(
 		'section'     => 'color_advanced_section',
 		'default'     => 'hsl(206, 23%, 25%)',
 		'choices'     => [
-			// When using formComponent, we ignore "alpha" and "save_as" choices.
+			// When using formComponent, we ignore 'alpha' and 'save_as' choices .
 			'formComponent' => 'HslStringColorPicker',
 		],
 		'transport'   => 'postMessage',
@@ -470,7 +478,7 @@ new \Kirki\Field\Color(
 		'section'     => 'color_advanced_section',
 		'default'     => 'hsla(206, 23%, 25%, 0.7)',
 		'choices'     => [
-			// When using formComponent, we ignore "alpha" and "save_as" choices.
+			// When using formComponent, we ignore 'alpha' and 'save_as' choices .
 			'formComponent' => 'HslaColorPicker',
 		],
 		'transport'   => 'postMessage',
@@ -495,7 +503,7 @@ new \Kirki\Field\Color(
 		'section'     => 'color_advanced_section',
 		'default'     => 'hsla(206, 23%, 25%, 0.7)',
 		'choices'     => [
-			// When using formComponent, we ignore "alpha" and "save_as" choices.
+			// When using formComponent, we ignore 'alpha' and 'save_as' choices .
 			'formComponent' => 'HslaStringColorPicker',
 		],
 		'transport'   => 'postMessage',
@@ -514,6 +522,7 @@ new \Kirki\Field\Date(
 		'default'     => '',
 	]
 );
+
 new \Kirki\Field\Date(
 	[
 		'settings'    => 'date_setting2',
@@ -1192,12 +1201,12 @@ Kirki::add_field(
  */
 new \Kirki\Field\Typography(
 	[
-		'settings'    => 'typography_setting_0',
+		'settings'    => 'kirki_typography_setting',
 		'label'       => esc_html__( 'Typography Control', 'kirki' ),
 		'description' => esc_html__( 'The full set of options.', 'kirki' ),
 		'section'     => 'typography_section',
 		'priority'    => 10,
-		'transport'   => 'auto',
+		'transport'   => 'postMessage',
 		'default'     => [
 			'font-family'     => 'Roboto',
 			'variant'         => 'regular',
@@ -1206,14 +1215,11 @@ new \Kirki\Field\Typography(
 			'font-size'       => '14px',
 			'line-height'     => '1.5',
 			'letter-spacing'  => '0',
-			'word-spacing'    => 'normal',
 			'text-transform'  => 'none',
 			'text-decoration' => 'none',
 			'text-align'      => 'left',
 			'margin-top'      => '0',
-			'margin-right'    => '0',
 			'margin-bottom'   => '0',
-			'margin-left'     => '0',
 		],
 		'output'      => [
 			[
@@ -1247,24 +1253,24 @@ new \Kirki\Field\Typography(
 	]
 );
 
-// new \Kirki\Field\Typography(
-// 	[
-// 		'settings'    => 'typography_setting_1',
-// 		'label'       => esc_html__( 'Typography Control', 'kirki' ),
-// 		'description' => esc_html__( 'Just the font-family and font-weight.', 'kirki' ),
-// 		'section'     => 'typography_section',
-// 		'priority'    => 10,
-// 		'transport'   => 'auto',
-// 		'default'     => [
-// 			'font-family' => 'Roboto',
-// 		],
-// 		'output'      => [
-// 			[
-// 				'element' => [ 'h1', 'h2', 'h3', 'h4', 'h5', 'h6' ],
-// 			],
-// 		],
-// 	]
-// );
+new \Kirki\Field\Typography(
+	[
+		'settings'    => 'typography_setting_1',
+		'label'       => esc_html__( 'Typography Control', 'kirki' ),
+		'description' => esc_html__( 'Just the font-family and font-weight.', 'kirki' ),
+		'section'     => 'typography_section',
+		'priority'    => 10,
+		'transport'   => 'auto',
+		'default'     => [
+			'font-family' => 'Roboto',
+		],
+		'output'      => [
+			[
+				'element' => [ 'h1', 'h2', 'h3', 'h4', 'h5', 'h6' ],
+			],
+		],
+	]
+);
 
 /**
  * Example function that creates a control containing the available sidebars as choices.
@@ -1295,4 +1301,4 @@ function kirki_sidebars_select_example() {
 		]
 	);
 }
-add_action( 'init', 'kirki_sidebars_select_example', 999 );
+// add_action( 'init', 'kirki_sidebars_select_example', 999 );
