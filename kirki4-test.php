@@ -255,12 +255,18 @@ new \Kirki\Field\Color(
 		'label'       => 'New! — Using <code>save_as</code> choice',
 		'description' => esc_html__( 'You can use "save_as" in your choices with value is "array" or "string" (which is default). However, this "save_as" choice will be ignored when using "formComponent" choice with value is "HexColorPicker", or when using "mode" argument with value is "hue".', 'kirki' ),
 		'section'     => 'color_section',
-		'transport'   => 'postMessage',
+		'transport'   => 'auto',
 		'choices'     => [
 			'alpha'   => true,
 			'save_as' => 'array', // Default is 'string'.
 		],
-	]
+		'output'      => [
+			[
+				'element'  => 'body',
+				'property' => 'background-color',
+			],
+		],
+	],
 );
 
 /**
