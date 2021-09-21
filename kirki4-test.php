@@ -247,13 +247,13 @@ new \Kirki\Field\Color(
 /**
  * The "save_as" choice will be ignored when using:
  * - "mode" argument (argument, not choices) with value is "hue"
- * - Or, "formComponent" choice with value is "HexColorPicker"
+ * - Or, "form_component" choice with value is "HexColorPicker"
  */
 new \Kirki\Field\Color(
 	[
 		'settings'    => 'kirki_color_setting_save_as',
 		'label'       => 'New! — Using <code>save_as</code> choice',
-		'description' => esc_html__( 'You can use "save_as" in your choices with value is "array" or "string" (which is default). However, this "save_as" choice will be ignored when using "formComponent" choice with value is "HexColorPicker", or when using "mode" argument with value is "hue".', 'kirki' ),
+		'description' => esc_html__( 'You can use "save_as" in your choices with value is "array" or "string" (which is default). However, this "save_as" choice will be ignored when using "form_component" choice with value is "HexColorPicker", or when using "mode" argument with value is "hue".', 'kirki' ),
 		'section'     => 'color_section',
 		'transport'   => 'auto',
 		'choices'     => [
@@ -274,31 +274,31 @@ new \Kirki\Field\Color(
  */
 
 /**
- * Color control with formComponent value is HexColorPicker.
+ * Color control with form_component value is HexColorPicker.
  *
  * The saved value will always be a string, for instance:
  * "#ff0000"
  *
- * When formComponent is set, we ignore the "alpha" and "save_as" choices.
+ * When "form_component" is set, we ignore the "alpha" and "save_as" choices.
  * They can set it, but it will be ignored.
  */
 new \Kirki\Field\Color(
 	[
 		'settings'    => 'kirki_color_advanced_setting_hex',
-		'label'       => __( 'v4 — formComponent — HexColorPicker', 'kirki' ),
-		'description' => esc_html__( 'This is a color control with formComponent value is HexColorPicker.', 'kirki' ),
+		'label'       => __( 'v4 — form_component — HexColorPicker', 'kirki' ),
+		'description' => esc_html__( 'This is a color control with form_component value is HexColorPicker.', 'kirki' ),
 		'section'     => 'color_advanced_section',
 		'default'     => '#ffff00',
 		'choices'     => [
-			// When using formComponent, we ignore 'alpha' and 'save_as' choices .
-			'formComponent' => 'HexColorPicker',
+			// When using 'form_component', we ignore 'alpha' and 'save_as' choices .
+			'form_component' => 'HexColorPicker',
 		],
 		'transport'   => 'postMessage',
 	]
 );
 
 /**
- * Color control with formComponent value is RgbColorPicker.
+ * Color control with form_component value is RgbColorPicker.
  *
  * The saved value will be an rgba array.
  * The format is following the `react-colorful` and `colord` formatting, for instance:
@@ -309,51 +309,51 @@ new \Kirki\Field\Color(
  *   'a' => 0.5
  * ]
  *
- * When formComponent is set, we ignore the "alpha" and "save_as" choices.
+ * When "form_component" is set, we ignore the "alpha" and "save_as" choices.
  * They can set it, but it will be ignored.
  */
 new \Kirki\Field\Color(
 	[
 		'settings'    => 'kirki_color_advanced_setting_rgb',
-		'label'       => __( 'v4 — formComponent — RgbColorPicker', 'kirki' ),
-		'description' => esc_html__( 'This is a color control with formComponent value is RgbColorPicker. The saved value will be an array.', 'kirki' ),
+		'label'       => __( 'v4 — form_component — RgbColorPicker', 'kirki' ),
+		'description' => esc_html__( 'This is a color control with form_component value is RgbColorPicker. The saved value will be an array.', 'kirki' ),
 		'section'     => 'color_advanced_section',
 		'default'     => '#ffff00',
 		'choices'     => [
-			// When using formComponent, we ignore 'alpha' and 'save_as' choices .
-			'formComponent' => 'RgbColorPicker',
+			// When using 'form_component', we ignore 'alpha' and 'save_as' choices .
+			'form_component' => 'RgbColorPicker',
 		],
 		'transport'   => 'postMessage',
 	]
 );
 
 /**
- * Color control with formComponent value is RgbStringColorPicker.
+ * Color control with form_component value is RgbStringColorPicker.
  *
  * The saved value will be an rgb string.
  * The format is following the `react-colorful` and `colord` formatting, for instance:
  * "rgba(255, 255, 45)"
  *
- * When formComponent is set, we ignore the "alpha" and "save_as" choices.
+ * When "form_component" is set, we ignore the "alpha" and "save_as" choices.
  * They can set it, but it will be ignored.
  */
 new \Kirki\Field\Color(
 	[
 		'settings'    => 'kirki_color_advanced_setting_rgb_string',
-		'label'       => __( 'v4 — formComponent — RgbStringColorPicker', 'kirki' ),
-		'description' => esc_html__( 'This is a color control with formComponent value is RgbStringColorPicker. The saved value will be a string.', 'kirki' ),
+		'label'       => __( 'v4 — form_component — RgbStringColorPicker', 'kirki' ),
+		'description' => esc_html__( 'This is a color control with form_component value is RgbStringColorPicker. The saved value will be a string.', 'kirki' ),
 		'section'     => 'color_advanced_section',
 		'default'     => '#ffff00',
 		'choices'     => [
-			// When using formComponent, we ignore 'alpha' and 'save_as' choices .
-			'formComponent' => 'RgbStringColorPicker',
+			// When using 'form_component', we ignore 'alpha' and 'save_as' choices .
+			'form_component' => 'RgbStringColorPicker',
 		],
 		'transport'   => 'postMessage',
 	]
 );
 
 /**
- * Color control with formComponent value is RgbaColorPicker.
+ * Color control with form_component value is RgbaColorPicker.
  *
  * The saved value will be an rgba array.
  * The format is following the `react-colorful` and `colord` formatting, for instance:
@@ -364,51 +364,51 @@ new \Kirki\Field\Color(
  *   'a' => 0.5
  * ]
  *
- * When formComponent is set, we ignore the "alpha" and "save_as" choices.
+ * When "form_component" is set, we ignore the "alpha" and "save_as" choices.
  * They can set it, but it will be ignored.
  */
 new \Kirki\Field\Color(
 	[
 		'settings'    => 'kirki_color_advanced_setting_rgba',
-		'label'       => __( 'v4 — formComponent — RgbaColorPicker', 'kirki' ),
-		'description' => esc_html__( 'This is a color control with formComponent value is RgbaColorPicker.  The saved value will be an array.', 'kirki' ),
+		'label'       => __( 'v4 — form_component — RgbaColorPicker', 'kirki' ),
+		'description' => esc_html__( 'This is a color control with form_component value is RgbaColorPicker.  The saved value will be an array.', 'kirki' ),
 		'section'     => 'color_advanced_section',
 		'default'     => '#ffff00',
 		'choices'     => [
-			// When using formComponent, we ignore 'alpha' and 'save_as' choices .
-			'formComponent' => 'RgbaColorPicker',
+			// When using 'form_component', we ignore 'alpha' and 'save_as' choices .
+			'form_component' => 'RgbaColorPicker',
 		],
 		'transport'   => 'postMessage',
 	]
 );
 
 /**
- * Color control with formComponent value is RgbaStringColorPicker.
+ * Color control with form_component value is RgbaStringColorPicker.
  *
  * The saved value will be an rgba string.
  * The format is following the `react-colorful` and `colord` formatting, for instance:
  * "rgba(255, 255, 45, 0.5)"
  *
- * When formComponent is set, we ignore the "alpha" and "save_as" choices.
+ * When "form_component" is set, we ignore the "alpha" and "save_as" choices.
  * They can set it, but it will be ignored.
  */
 new \Kirki\Field\Color(
 	[
 		'settings'    => 'kirki_color_advanced_setting_rgba_string',
-		'label'       => __( 'v4 — formComponent — RgbaStringColorPicker', 'kirki' ),
-		'description' => esc_html__( 'This is a color control with formComponent value is RgbaStringColorPicker. The saved value will be a string.', 'kirki' ),
+		'label'       => __( 'v4 — form_component — RgbaStringColorPicker', 'kirki' ),
+		'description' => esc_html__( 'This is a color control with form_component value is RgbaStringColorPicker. The saved value will be a string.', 'kirki' ),
 		'section'     => 'color_advanced_section',
 		'default'     => '#ffff00',
 		'choices'     => [
-			// When using formComponent, we ignore 'alpha' and 'save_as' choices .
-			'formComponent' => 'RgbaStringColorPicker',
+			// When using 'form_component', we ignore 'alpha' and 'save_as' choices .
+			'form_component' => 'RgbaStringColorPicker',
 		],
 		'transport'   => 'postMessage',
 	]
 );
 
 /**
- * Color control with formComponent value is HslColorPicker.
+ * Color control with form_component value is HslColorPicker.
  *
  * The saved value will be an hsl array.
  * The format is following the `react-colorful` and `colord` formatting (int, without the percent sign), for instance:
@@ -418,51 +418,51 @@ new \Kirki\Field\Color(
  *   'l' => 50, // Is int, without the percent sign.
  * ]
  *
- * When formComponent is set, we ignore the "alpha" and "save_as" choices.
+ * When "form_component" is set, we ignore the "alpha" and "save_as" choices.
  * They can set it, but it will be ignored.
  */
 new \Kirki\Field\Color(
 	[
 		'settings'    => 'kirki_color_advanced_setting_hsl',
-		'label'       => __( 'v4 — formComponent — HslColorPicker', 'kirki' ),
-		'description' => esc_html__( 'This is a color control with formComponent value is HslColorPicker. The saved value will be an array', 'kirki' ),
+		'label'       => __( 'v4 — form_component — HslColorPicker', 'kirki' ),
+		'description' => esc_html__( 'This is a color control with form_component value is HslColorPicker. The saved value will be an array', 'kirki' ),
 		'section'     => 'color_advanced_section',
 		'default'     => 'hsl(206, 23%, 25%)',
 		'choices'     => [
-			// When using formComponent, we ignore 'alpha' and 'save_as' choices .
-			'formComponent' => 'HslColorPicker',
+			// When using 'form_component', we ignore 'alpha' and 'save_as' choices .
+			'form_component' => 'HslColorPicker',
 		],
 		'transport'   => 'postMessage',
 	]
 );
 
 /**
- * Color control with formComponent value is HslStringColorPicker.
+ * Color control with form_component value is HslStringColorPicker.
  *
  * The saved value will be an hsl string.
  * The format is following the `react-colorful` and `colord` formatting, for instance:
  * "hsl(180, 40%, 50%)"
  *
- * When formComponent is set, we ignore the "alpha" and "save_as" choices.
+ * When "form_component" is set, we ignore the "alpha" and "save_as" choices.
  * They can set it, but it will be ignored.
  */
 new \Kirki\Field\Color(
 	[
 		'settings'    => 'kirki_color_advanced_setting_hsl_string',
-		'label'       => __( 'v4 — formComponent — HslStringColorPicker', 'kirki' ),
-		'description' => esc_html__( 'This is a color control with formComponent value is HslStringColorPicker. The saved value will be a string', 'kirki' ),
+		'label'       => __( 'v4 — form_component — HslStringColorPicker', 'kirki' ),
+		'description' => esc_html__( 'This is a color control with form_component value is HslStringColorPicker. The saved value will be a string', 'kirki' ),
 		'section'     => 'color_advanced_section',
 		'default'     => 'hsl(206, 23%, 25%)',
 		'choices'     => [
-			// When using formComponent, we ignore 'alpha' and 'save_as' choices .
-			'formComponent' => 'HslStringColorPicker',
+			// When using 'form_component', we ignore 'alpha' and 'save_as' choices .
+			'form_component' => 'HslStringColorPicker',
 		],
 		'transport'   => 'postMessage',
 	]
 );
 
 /**
- * Color control with formComponent value is HslaColorPicker.
+ * Color control with form_component value is HslaColorPicker.
  *
  * The saved value will be an hsla array.
  * The format is following the `react-colorful` and `colord` formatting (int, without the percent sign), for instance:
@@ -473,44 +473,44 @@ new \Kirki\Field\Color(
  *   'a' => 0.5
  * ]
  *
- * When formComponent is set, we ignore the "alpha" and "save_as" choices.
+ * When "form_component" is set, we ignore the "alpha" and "save_as" choices.
  * They can set it, but it will be ignored.
  */
 new \Kirki\Field\Color(
 	[
 		'settings'    => 'kirki_color_advanced_setting_hsla',
-		'label'       => __( 'v4 — formComponent — HslaColorPicker', 'kirki' ),
-		'description' => esc_html__( 'This is a color control with formComponent value is HslaColorPicker. The saved value will be an array', 'kirki' ),
+		'label'       => __( 'v4 — form_component — HslaColorPicker', 'kirki' ),
+		'description' => esc_html__( 'This is a color control with form_component value is HslaColorPicker. The saved value will be an array', 'kirki' ),
 		'section'     => 'color_advanced_section',
 		'default'     => 'hsla(206, 23%, 25%, 0.7)',
 		'choices'     => [
-			// When using formComponent, we ignore 'alpha' and 'save_as' choices .
-			'formComponent' => 'HslaColorPicker',
+			// When using 'form_component', we ignore 'alpha' and 'save_as' choices .
+			'form_component' => 'HslaColorPicker',
 		],
 		'transport'   => 'postMessage',
 	]
 );
 
 /**
- * Color control with formComponent value is HslaStringColorPicker.
+ * Color control with form_component value is HslaStringColorPicker.
  *
  * The saved value will be an hsla string.
  * The format is following the `react-colorful` and `colord` formatting, for instance:
  * "hsla(180, 40%, 50%, 0.5)"
  *
- * When formComponent is set, we ignore the "alpha" and "save_as" choices.
+ * When "form_component" is set, we ignore the "alpha" and "save_as" choices.
  * They can set it, but it will be ignored.
  */
 new \Kirki\Field\Color(
 	[
 		'settings'    => 'kirki_color_advanced_setting_hsla_string',
-		'label'       => __( 'v4 — formComponent — HslaStringColorPicker', 'kirki' ),
-		'description' => esc_html__( 'This is a color control with formComponent value is HslaStringColorPicker. The saved value will be a string', 'kirki' ),
+		'label'       => __( 'v4 — form_component — HslaStringColorPicker', 'kirki' ),
+		'description' => esc_html__( 'This is a color control with form_component value is HslaStringColorPicker. The saved value will be a string', 'kirki' ),
 		'section'     => 'color_advanced_section',
 		'default'     => 'hsla(206, 23%, 25%, 0.7)',
 		'choices'     => [
-			// When using formComponent, we ignore 'alpha' and 'save_as' choices .
-			'formComponent' => 'HslaStringColorPicker',
+			// When using 'form_component', we ignore 'alpha' and 'save_as' choices .
+			'form_component' => 'HslaStringColorPicker',
 		],
 		'transport'   => 'postMessage',
 	]
