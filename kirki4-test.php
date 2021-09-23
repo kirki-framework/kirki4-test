@@ -675,6 +675,56 @@ Kirki::add_field(
 	]
 );
 
+add_action(
+	'customize_register',
+	function( $wp_customize ) {
+		/**
+		 * The custom control class
+		 */
+		class Kirki_Demo_Custom_Control extends Kirki\Control\Base {
+			public $type = 'kirki-demo-custom-control';
+
+			public function render_content() {
+
+				$saved_value = $this->value();
+				?>
+
+				<span class="customize-control-title"><?php echo esc_html( $this->label ); ?></span>
+				<span class="customize-control-description description"><?php echo esc_html( $this->description ); ?></span>
+
+				<div class="kirki-demo-custom-control">
+					<div class="slider"></div>
+					<input type="text" id="<?php echo esc_attr( $this->id ); ?>" name="<?php echo esc_attr( $this->id ); ?>" value="<?php echo esc_attr( $saved_value ); ?>" class="customize-control-slider-value" <?php $this->link(); ?> />
+				</div>
+
+				<?php
+			}
+		}
+
+		// Register our custom control with Kirki.
+		add_filter(
+			'kirki_control_types',
+			function( $controls ) {
+				$controls['kirki-demo-custom-control'] = 'Kirki_Demo_Custom_Control';
+				return $controls;
+			}
+		);
+
+	}
+);
+
+Kirki::add_field(
+	'kirki_test_config',
+	[
+		'type'        => 'kirki-demo-custom-control',
+		'settings'    => 'kirki_demo_custom_control_old_way',
+		'label'       => esc_html__( 'Custom Control', 'kirki' ),
+		'description' => 'A custom control demo, registered by extending `Kirki\\Control\\Base` class.',
+		'section'     => 'custom_section',
+		'transport'   => 'postMessage',
+	]
+);
+
 /**
  * Dashicons control.
  *
