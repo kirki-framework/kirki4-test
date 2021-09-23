@@ -55,6 +55,26 @@ function kirki_stop_heartbeat() {
 }
 add_action( 'init', 'kirki_stop_heartbeat', 1 );
 
+// For partial refresh demo.
+add_action(
+	'wp_body_open',
+	function () {
+		?>
+
+	<div class="kirki-partial-refresh-demo" style="position: fixed; top: 50px; left: 50%; transform:translate(-50%); border-radius: 6px; background-color: #000; color: #fff; text-align: center;"></div>
+
+		<?php
+	}
+);
+
+Kirki::add_config(
+	'kirki_test_config',
+	[
+		'option_type' => 'theme_mod',
+		'capability'  => 'manage_options',
+	]
+);
+
 /**
  * Add a panel.
  *
@@ -193,7 +213,7 @@ new \Kirki\Field\Checkbox(
  * @link https://kirki.org/docs/controls/color.html
  */
 Kirki::add_field(
-	'theme_config_id',
+	'kirki_test_config',
 	[
 		'type'        => 'color',
 		'settings'    => 'kirki_color_setting_alpha_old_way',
@@ -640,7 +660,7 @@ new \Kirki\Field\Color_Palette(
 );
 
 Kirki::add_field(
-	'theme_config_id',
+	'kirki_test_config',
 	[
 		'type'        => 'color-palette',
 		'settings'    => 'color_palette_setting__old',
@@ -786,11 +806,20 @@ new \Kirki\Field\Dropdown_Pages(
  */
 new \Kirki\Field\Text(
 	[
-		'settings'    => 'generic_text_setting',
-		'label'       => esc_html__( 'Generic Control — Text Field', 'kirki' ),
-		'description' => esc_html__( 'Description', 'kirki' ),
-		'section'     => 'generic_section',
-		'default'     => '',
+		'settings'        => 'generic_text_setting',
+		'label'           => esc_html__( 'Generic Control — Text Field', 'kirki' ),
+		'description'     => esc_html__( 'The demo of this control has partial refresh', 'kirki' ),
+		'section'         => 'generic_section',
+		'transport'       => 'postMessage',
+		'default'         => '',
+		'partial_refresh' => [
+			'generic_text_refresh' => [
+				'selector'        => '.kirki-partial-refresh-demo',
+				'render_callback' => function() {
+					return 'value of Generic Text Field control is: ' . get_theme_mod( 'generic_text_setting' );
+				},
+			],
+		],
 	]
 );
 
@@ -1105,6 +1134,7 @@ new \Kirki\Field\Slider(
 		'section'     => 'slider_section',
 		'default'     => '10',
 		'transport'   => 'postMessage',
+		'tooltip'     => esc_html__( 'This is the tooltip', 'kirki' ),
 		'choices'     => [
 			'min'  => 0,
 			'max'  => 100,
@@ -1114,7 +1144,7 @@ new \Kirki\Field\Slider(
 );
 
 Kirki::add_field(
-	'theme_config_id',
+	'kirki_test_config',
 	[
 		'type'        => 'slider',
 		'settings'    => 'slider_setting_old',
@@ -1189,7 +1219,7 @@ new \Kirki\Field\Checkbox_Switch(
  * Toggle control.
  */
 Kirki::add_field(
-	'theme_config_id',
+	'kirki_test_config',
 	[
 		'type'        => 'toggle',
 		'settings'    => 'toggle_setting',
