@@ -62,6 +62,7 @@ add_action(
 		?>
 
 	<div class="kirki-partial-refresh-demo" style="position: fixed; top: 50px; left: 50%; transform:translate(-50%); border-radius: 6px; background-color: #000; color: #fff; text-align: center;"></div>
+	<div class="kirki-partial-refresh-demo2" style="position: fixed; top: 100px; left: 50%; transform:translate(-50%); border-radius: 6px; background-color: #000; color: #fff; text-align: center;"></div>
 
 		<?php
 	}
@@ -858,7 +859,7 @@ new \Kirki\Field\Text(
 	[
 		'settings'        => 'generic_text_setting',
 		'label'           => esc_html__( 'Generic Control — Text Field', 'kirki' ),
-		'description'     => esc_html__( 'The demo of this control has partial refresh', 'kirki' ),
+		'description'     => esc_html__( 'The demo of this control has partial refresh with transport is postMessage', 'kirki' ),
 		'section'         => 'generic_section',
 		'transport'       => 'postMessage',
 		'default'         => '',
@@ -866,7 +867,8 @@ new \Kirki\Field\Text(
 			'generic_text_refresh' => [
 				'selector'        => '.kirki-partial-refresh-demo',
 				'render_callback' => function() {
-					return 'value of Generic Text Field control is: ' . get_theme_mod( 'generic_text_setting' );
+					$value = get_theme_mod( 'generic_text_setting' );
+					return $value ? 'value of Generic URL Field control is: ' . $value : '';
 				},
 			],
 		],
@@ -875,11 +877,20 @@ new \Kirki\Field\Text(
 
 new \Kirki\Field\URL(
 	[
-		'settings'    => 'generic_url_setting',
-		'label'       => esc_html__( 'Generic Control — URL Field', 'kirki' ),
-		'description' => esc_html__( 'Description', 'kirki' ),
-		'section'     => 'generic_section',
-		'default'     => '',
+		'settings'        => 'generic_url_setting',
+		'label'           => esc_html__( 'Generic Control — URL Field', 'kirki' ),
+		'description'     => esc_html__( 'The demo of this control has partial refresh without transport is defined', 'kirki' ),
+		'section'         => 'generic_section',
+		'default'         => '',
+		'partial_refresh' => [
+			'generic_text_refresh2' => [
+				'selector'        => '.kirki-partial-refresh-demo2',
+				'render_callback' => function() {
+					$value = get_theme_mod( 'generic_url_setting' );
+					return $value ? 'value of Generic URL Field control is: ' . $value : '';
+				},
+			],
+		],
 	]
 );
 
