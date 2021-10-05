@@ -1005,7 +1005,7 @@ new \Kirki\Field\Multicolor(
 		'transport' => 'postMessage',
 		'choices'   => [
 			'link'   => esc_html__( 'Color', 'kirki' ),
-			'hover'  => esc_html__( 'Hover', 'kirki' ),
+			'hover'  => esc_html__( 'And this hover color just so that you have long label', 'kirki' ),
 			'active' => esc_html__( 'Active', 'kirki' ),
 		],
 		'alpha'     => true,
