@@ -266,31 +266,6 @@ new \Kirki\Field\Color(
 );
 
 /**
- * The "save_as" choice will be ignored when using:
- * - "mode" argument (argument, not choices) with value is "hue"
- * - Or, "form_component" choice with value is "HexColorPicker"
- */
-new \Kirki\Field\Color(
-	[
-		'settings'    => 'kirki_color_setting_save_as',
-		'label'       => 'New! — Using <code>save_as</code> choice',
-		'description' => esc_html__( 'You can use "save_as" in your choices with value is "array" or "string" (which is default). However, this "save_as" choice will be ignored when using "form_component" choice with value is "HexColorPicker", or when using "mode" argument with value is "hue".', 'kirki' ),
-		'section'     => 'color_section',
-		'transport'   => 'auto',
-		'choices'     => [
-			'alpha'   => true,
-			'save_as' => 'array', // Default is 'string'.
-		],
-		'output'      => [
-			[
-				'element'  => 'body',
-				'property' => 'background-color',
-			],
-		],
-	],
-);
-
-/**
  * Color Control (Advanced)
  */
 
@@ -299,9 +274,6 @@ new \Kirki\Field\Color(
  *
  * The saved value will always be a string, for instance:
  * "#ff0000"
- *
- * When "form_component" is set, we ignore the "alpha" and "save_as" choices.
- * They can set it, but it will be ignored.
  */
 new \Kirki\Field\Color(
 	[
@@ -311,7 +283,6 @@ new \Kirki\Field\Color(
 		'section'     => 'color_advanced_section',
 		'default'     => '#ffff00',
 		'choices'     => [
-			// When using 'form_component', we ignore 'alpha' and 'save_as' choices .
 			'form_component' => 'HexColorPicker',
 		],
 		'transport'   => 'postMessage',
@@ -329,9 +300,6 @@ new \Kirki\Field\Color(
  *   'b' => 45,
  *   'a' => 0.5
  * ]
- *
- * When "form_component" is set, we ignore the "alpha" and "save_as" choices.
- * They can set it, but it will be ignored.
  */
 new \Kirki\Field\Color(
 	[
@@ -341,7 +309,6 @@ new \Kirki\Field\Color(
 		'section'     => 'color_advanced_section',
 		'default'     => '#ffff00',
 		'choices'     => [
-			// When using 'form_component', we ignore 'alpha' and 'save_as' choices .
 			'form_component' => 'RgbColorPicker',
 		],
 		'transport'   => 'postMessage',
@@ -354,9 +321,6 @@ new \Kirki\Field\Color(
  * The saved value will be an rgb string.
  * The format is following the `react-colorful` and `colord` formatting, for instance:
  * "rgba(255, 255, 45)"
- *
- * When "form_component" is set, we ignore the "alpha" and "save_as" choices.
- * They can set it, but it will be ignored.
  */
 new \Kirki\Field\Color(
 	[
@@ -366,7 +330,6 @@ new \Kirki\Field\Color(
 		'section'     => 'color_advanced_section',
 		'default'     => '#ffff00',
 		'choices'     => [
-			// When using 'form_component', we ignore 'alpha' and 'save_as' choices .
 			'form_component' => 'RgbStringColorPicker',
 		],
 		'transport'   => 'postMessage',
@@ -384,9 +347,6 @@ new \Kirki\Field\Color(
  *   'b' => 45,
  *   'a' => 0.5
  * ]
- *
- * When "form_component" is set, we ignore the "alpha" and "save_as" choices.
- * They can set it, but it will be ignored.
  */
 new \Kirki\Field\Color(
 	[
@@ -396,7 +356,6 @@ new \Kirki\Field\Color(
 		'section'     => 'color_advanced_section',
 		'default'     => '#ffff00',
 		'choices'     => [
-			// When using 'form_component', we ignore 'alpha' and 'save_as' choices .
 			'form_component' => 'RgbaColorPicker',
 		],
 		'transport'   => 'postMessage',
@@ -409,9 +368,6 @@ new \Kirki\Field\Color(
  * The saved value will be an rgba string.
  * The format is following the `react-colorful` and `colord` formatting, for instance:
  * "rgba(255, 255, 45, 0.5)"
- *
- * When "form_component" is set, we ignore the "alpha" and "save_as" choices.
- * They can set it, but it will be ignored.
  */
 new \Kirki\Field\Color(
 	[
@@ -421,7 +377,6 @@ new \Kirki\Field\Color(
 		'section'     => 'color_advanced_section',
 		'default'     => '#ffff00',
 		'choices'     => [
-			// When using 'form_component', we ignore 'alpha' and 'save_as' choices .
 			'form_component' => 'RgbaStringColorPicker',
 		],
 		'transport'   => 'postMessage',
@@ -438,9 +393,6 @@ new \Kirki\Field\Color(
  *   's' => 40, // Is int, without the percent sign.
  *   'l' => 50, // Is int, without the percent sign.
  * ]
- *
- * When "form_component" is set, we ignore the "alpha" and "save_as" choices.
- * They can set it, but it will be ignored.
  */
 new \Kirki\Field\Color(
 	[
@@ -450,7 +402,6 @@ new \Kirki\Field\Color(
 		'section'     => 'color_advanced_section',
 		'default'     => 'hsl(206, 23%, 25%)',
 		'choices'     => [
-			// When using 'form_component', we ignore 'alpha' and 'save_as' choices .
 			'form_component' => 'HslColorPicker',
 		],
 		'transport'   => 'postMessage',
@@ -463,9 +414,6 @@ new \Kirki\Field\Color(
  * The saved value will be an hsl string.
  * The format is following the `react-colorful` and `colord` formatting, for instance:
  * "hsl(180, 40%, 50%)"
- *
- * When "form_component" is set, we ignore the "alpha" and "save_as" choices.
- * They can set it, but it will be ignored.
  */
 new \Kirki\Field\Color(
 	[
@@ -475,7 +423,6 @@ new \Kirki\Field\Color(
 		'section'     => 'color_advanced_section',
 		'default'     => 'hsl(206, 23%, 25%)',
 		'choices'     => [
-			// When using 'form_component', we ignore 'alpha' and 'save_as' choices .
 			'form_component' => 'HslStringColorPicker',
 		],
 		'transport'   => 'postMessage',
@@ -493,9 +440,6 @@ new \Kirki\Field\Color(
  *   'l' => 50, // Is int, without the percent sign.
  *   'a' => 0.5
  * ]
- *
- * When "form_component" is set, we ignore the "alpha" and "save_as" choices.
- * They can set it, but it will be ignored.
  */
 new \Kirki\Field\Color(
 	[
@@ -505,7 +449,6 @@ new \Kirki\Field\Color(
 		'section'     => 'color_advanced_section',
 		'default'     => 'hsla(206, 23%, 25%, 0.7)',
 		'choices'     => [
-			// When using 'form_component', we ignore 'alpha' and 'save_as' choices .
 			'form_component' => 'HslaColorPicker',
 		],
 		'transport'   => 'postMessage',
@@ -518,9 +461,6 @@ new \Kirki\Field\Color(
  * The saved value will be an hsla string.
  * The format is following the `react-colorful` and `colord` formatting, for instance:
  * "hsla(180, 40%, 50%, 0.5)"
- *
- * When "form_component" is set, we ignore the "alpha" and "save_as" choices.
- * They can set it, but it will be ignored.
  */
 new \Kirki\Field\Color(
 	[
@@ -530,7 +470,6 @@ new \Kirki\Field\Color(
 		'section'     => 'color_advanced_section',
 		'default'     => 'hsla(206, 23%, 25%, 0.7)',
 		'choices'     => [
-			// When using 'form_component', we ignore 'alpha' and 'save_as' choices .
 			'form_component' => 'HslaStringColorPicker',
 		],
 		'transport'   => 'postMessage',
