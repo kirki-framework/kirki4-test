@@ -39,7 +39,7 @@ function kirki4_test_remove_jquery_migrate( $scripts ) {
 	if ( isset( $scripts->registered['jquery'] ) ) {
 		$script = $scripts->registered['jquery'];
 
-		// Check whether the script has any dependencies
+		// Check whether the script has any dependencies.
 		if ( $script->deps ) {
 			$script->deps = array_diff( $script->deps, [ 'jquery-migrate' ] );
 		}
@@ -68,8 +68,14 @@ add_action(
 	}
 );
 
+
+
+// The scripts below can be copied to Kirki's example.php file.
+
+
+
 Kirki::add_config(
-	'kirki_test_config',
+	'kirki_demo_config',
 	[
 		'option_type' => 'theme_mod',
 		'capability'  => 'manage_options',
@@ -131,6 +137,7 @@ $sections = [
 	'typography'      => [ esc_html__( 'Typography', 'kirki' ), '' ],
 	'upload'          => [ esc_html__( 'Upload', 'kirki' ), '' ],
 ];
+
 foreach ( $sections as $section_id => $section ) {
 	$section_args = [
 		'title'       => $section[0],
@@ -149,7 +156,7 @@ new \Kirki\Section(
 		'title'       => esc_html__( 'Test Link Section', 'kirki' ),
 		'type'        => 'link',
 		'button_text' => esc_html__( 'Pro', 'kirki' ),
-		'button_url'  => 'https://wplemon.com',
+		'button_url'  => 'https://kirki.org',
 	]
 );
 
@@ -160,7 +167,7 @@ new \Kirki\Section(
  */
 new \Kirki\Field\Background(
 	[
-		'settings'    => 'background_setting',
+		'settings'    => 'kirki_demo_background',
 		'label'       => esc_html__( 'Background Control', 'kirki' ),
 		'description' => esc_html__( 'Background conrols are pretty complex! (but useful if properly used)', 'kirki' ),
 		'section'     => 'background_section',
@@ -182,9 +189,9 @@ new \Kirki\Field\Background(
  */
 new \Kirki\Field\Code(
 	[
-		'settings'    => 'code_css_setting',
+		'settings'    => 'kirki_demo_code_css',
 		'label'       => esc_html__( 'Code Control — CSS', 'kirki' ),
-		'description' => esc_html__( 'Description', 'kirki' ),
+		'description' => esc_html__( 'Sample of code control in CSS format', 'kirki' ),
 		'section'     => 'code_section',
 		'default'     => '',
 		'choices'     => [
@@ -200,9 +207,9 @@ new \Kirki\Field\Code(
  */
 new \Kirki\Field\Checkbox(
 	[
-		'settings'    => 'checkbox_setting',
+		'settings'    => 'kirki_demo_checkbox',
 		'label'       => esc_html__( 'Checkbox Control', 'kirki' ),
-		'description' => esc_html__( 'Description', 'kirki' ),
+		'description' => esc_html__( 'Sample of checkbox control', 'kirki' ),
 		'section'     => 'checkbox_section',
 		'default'     => true,
 	]
@@ -214,12 +221,12 @@ new \Kirki\Field\Checkbox(
  * @link https://kirki.org/docs/controls/color.html
  */
 Kirki::add_field(
-	'kirki_test_config',
+	'kirki_demo_config',
 	[
 		'type'        => 'color',
-		'settings'    => 'kirki_color_setting_alpha_old_way',
+		'settings'    => 'kirki_demo_color_alpha_old',
 		'label'       => 'Using <code>Kirki::add_field</code> — With alpha',
-		'description' => esc_html__( 'This is a color control registered using `Kirki::add_field` with "alpha" => true.', 'kirki' ),
+		'description' => esc_html__( 'This is a color control registered using `Kirki::add_field` with "alpha" => true (the old Kirki API).', 'kirki' ),
 		'section'     => 'color_section',
 		'transport'   => 'postMessage',
 		'default'     => '#ff0055',
@@ -231,7 +238,7 @@ Kirki::add_field(
 
 new \Kirki\Field\Color(
 	[
-		'settings'    => 'kirki_color_setting_hex',
+		'settings'    => 'kirki_demo_color_hex',
 		'label'       => __( 'Hex only', 'kirki' ),
 		'description' => esc_html__( 'This is a color control without alpha channel.', 'kirki' ),
 		'section'     => 'color_section',
@@ -242,7 +249,7 @@ new \Kirki\Field\Color(
 
 new \Kirki\Field\Color(
 	[
-		'settings'    => 'kirki_color_setting_alpha',
+		'settings'    => 'kirki_demo_color_alpha',
 		'label'       => __( 'With alpha channel', 'kirki' ),
 		'description' => esc_html__( 'This is a color control with alpha channel.', 'kirki' ),
 		'section'     => 'color_section',
@@ -255,7 +262,7 @@ new \Kirki\Field\Color(
 
 new \Kirki\Field\Color(
 	[
-		'settings'    => 'kirki_color_setting_hue',
+		'settings'    => 'kirki_demo_color_hue',
 		'label'       => __( 'Hue only.', 'kirki' ),
 		'description' => esc_html__( 'This is a color control with "mode" => "hue" (hue mode).', 'kirki' ),
 		'section'     => 'color_section',
@@ -277,7 +284,7 @@ new \Kirki\Field\Color(
  */
 new \Kirki\Field\Color(
 	[
-		'settings'    => 'kirki_color_advanced_setting_hex',
+		'settings'    => 'kirki_demo_color_form_component_hex',
 		'label'       => __( 'v4 — form_component — HexColorPicker', 'kirki' ),
 		'description' => esc_html__( 'This is a color control with form_component value is HexColorPicker.', 'kirki' ),
 		'section'     => 'color_advanced_section',
@@ -303,7 +310,7 @@ new \Kirki\Field\Color(
  */
 new \Kirki\Field\Color(
 	[
-		'settings'    => 'kirki_color_advanced_setting_rgb',
+		'settings'    => 'kirki_demo_color_form_component_rgb',
 		'label'       => __( 'v4 — form_component — RgbColorPicker', 'kirki' ),
 		'description' => esc_html__( 'This is a color control with form_component value is RgbColorPicker. The saved value will be an array.', 'kirki' ),
 		'section'     => 'color_advanced_section',
@@ -324,7 +331,7 @@ new \Kirki\Field\Color(
  */
 new \Kirki\Field\Color(
 	[
-		'settings'    => 'kirki_color_advanced_setting_rgb_string',
+		'settings'    => 'kirki_demo_color_form_component_rgb_string',
 		'label'       => __( 'v4 — form_component — RgbStringColorPicker', 'kirki' ),
 		'description' => esc_html__( 'This is a color control with form_component value is RgbStringColorPicker. The saved value will be a string.', 'kirki' ),
 		'section'     => 'color_advanced_section',
@@ -350,7 +357,7 @@ new \Kirki\Field\Color(
  */
 new \Kirki\Field\Color(
 	[
-		'settings'    => 'kirki_color_advanced_setting_rgba',
+		'settings'    => 'kirki_demo_color_form_component_rgba',
 		'label'       => __( 'v4 — form_component — RgbaColorPicker', 'kirki' ),
 		'description' => esc_html__( 'This is a color control with form_component value is RgbaColorPicker.  The saved value will be an array.', 'kirki' ),
 		'section'     => 'color_advanced_section',
@@ -371,7 +378,7 @@ new \Kirki\Field\Color(
  */
 new \Kirki\Field\Color(
 	[
-		'settings'    => 'kirki_color_advanced_setting_rgba_string',
+		'settings'    => 'kirki_demo_color_form_component_rgba_string',
 		'label'       => __( 'v4 — form_component — RgbaStringColorPicker', 'kirki' ),
 		'description' => esc_html__( 'This is a color control with form_component value is RgbaStringColorPicker. The saved value will be a string.', 'kirki' ),
 		'section'     => 'color_advanced_section',
@@ -396,7 +403,7 @@ new \Kirki\Field\Color(
  */
 new \Kirki\Field\Color(
 	[
-		'settings'    => 'kirki_color_advanced_setting_hsl',
+		'settings'    => 'kirki_demo_color_form_component_hsl',
 		'label'       => __( 'v4 — form_component — HslColorPicker', 'kirki' ),
 		'description' => esc_html__( 'This is a color control with form_component value is HslColorPicker. The saved value will be an array', 'kirki' ),
 		'section'     => 'color_advanced_section',
@@ -417,7 +424,7 @@ new \Kirki\Field\Color(
  */
 new \Kirki\Field\Color(
 	[
-		'settings'    => 'kirki_color_advanced_setting_hsl_string',
+		'settings'    => 'kirki_demo_color_form_component_hsl_string',
 		'label'       => __( 'v4 — form_component — HslStringColorPicker', 'kirki' ),
 		'description' => esc_html__( 'This is a color control with form_component value is HslStringColorPicker. The saved value will be a string', 'kirki' ),
 		'section'     => 'color_advanced_section',
@@ -443,7 +450,7 @@ new \Kirki\Field\Color(
  */
 new \Kirki\Field\Color(
 	[
-		'settings'    => 'kirki_color_advanced_setting_hsla',
+		'settings'    => 'kirki_demo_color_form_component_hsla',
 		'label'       => __( 'v4 — form_component — HslaColorPicker', 'kirki' ),
 		'description' => esc_html__( 'This is a color control with form_component value is HslaColorPicker. The saved value will be an array', 'kirki' ),
 		'section'     => 'color_advanced_section',
@@ -464,7 +471,7 @@ new \Kirki\Field\Color(
  */
 new \Kirki\Field\Color(
 	[
-		'settings'    => 'kirki_color_advanced_setting_hsla_string',
+		'settings'    => 'kirki_demo_color_form_component_hsla_string',
 		'label'       => __( 'v4 — form_component — HslaStringColorPicker', 'kirki' ),
 		'description' => esc_html__( 'This is a color control with form_component value is HslaStringColorPicker. The saved value will be a string', 'kirki' ),
 		'section'     => 'color_advanced_section',
@@ -481,7 +488,7 @@ new \Kirki\Field\Color(
  */
 new \Kirki\Field\Date(
 	[
-		'settings'    => 'date_setting',
+		'settings'    => 'kirki_demo_date',
 		'label'       => esc_html__( 'Date Control', 'kirki' ),
 		'description' => esc_html__( 'This is a date control.', 'kirki' ),
 		'section'     => 'date_section',
@@ -491,7 +498,7 @@ new \Kirki\Field\Date(
 
 new \Kirki\Field\Date(
 	[
-		'settings'    => 'date_setting2',
+		'settings'    => 'kirki_demo_date_2',
 		'label'       => esc_html__( 'Date Control 2', 'kirki' ),
 		'description' => esc_html__( 'This is a date control.', 'kirki' ),
 		'section'     => 'date_section',
@@ -504,7 +511,7 @@ new \Kirki\Field\Date(
  */
 new \Kirki\Field\Editor(
 	[
-		'settings'    => 'editor_1',
+		'settings'    => 'kirki_demo_editor_1',
 		'label'       => esc_html__( 'First Editor Control', 'kirki' ),
 		'description' => esc_html__( 'This is an editor control.', 'kirki' ),
 		'section'     => 'editor_section',
@@ -514,7 +521,7 @@ new \Kirki\Field\Editor(
 
 new \Kirki\Field\Editor(
 	[
-		'settings'    => 'editor_2',
+		'settings'    => 'kirki_demo_editor_2',
 		'label'       => esc_html__( 'Second Editor Control', 'kirki' ),
 		'description' => esc_html__( 'This is a 2nd editor control just to check that we do not have issues with multiple instances.', 'kirki' ),
 		'section'     => 'editor_section',
@@ -529,7 +536,7 @@ new \Kirki\Field\Editor(
  */
 new \Kirki\Field\Color_Palette(
 	[
-		'settings'    => 'color_palette_setting__simple',
+		'settings'    => 'kirki_demo_color_palette_simple',
 		'label'       => esc_html__( 'Simple Colors Set', 'kirki' ),
 		'description' => esc_html__( 'With default size (28). The `size` here is inner size (without border)', 'kirki' ),
 		'section'     => 'color_palette_section',
@@ -544,7 +551,7 @@ new \Kirki\Field\Color_Palette(
 
 new \Kirki\Field\Color_Palette(
 	[
-		'settings'    => 'color_palette_setting__material_all',
+		'settings'    => 'kirki_demo_color_palette_material_all',
 		'label'       => esc_html__( 'Material Design Colors — All', 'kirki' ),
 		'description' => esc_html__( 'Showing all material design colors using `round` shape and size is 17', 'kirki' ),
 		'section'     => 'color_palette_section',
@@ -560,7 +567,7 @@ new \Kirki\Field\Color_Palette(
 
 new \Kirki\Field\Color_Palette(
 	[
-		'settings'    => 'color_palette_setting__material_primary',
+		'settings'    => 'kirki_demo_color_palette_material_primary',
 		'label'       => esc_html__( 'Material Design Colors — Primary', 'kirki' ),
 		'description' => esc_html__( 'Showing primary material design colors', 'kirki' ),
 		'section'     => 'color_palette_section',
@@ -573,7 +580,7 @@ new \Kirki\Field\Color_Palette(
 
 new \Kirki\Field\Color_Palette(
 	[
-		'settings'    => 'color_palette_setting__material_red',
+		'settings'    => 'kirki_demo_color_palette_material_red',
 		'label'       => esc_html__( 'Material Design Colors — Red', 'kirki' ),
 		'description' => esc_html__( 'Showing red material design colors', 'kirki' ),
 		'section'     => 'color_palette_section',
@@ -586,7 +593,7 @@ new \Kirki\Field\Color_Palette(
 
 new \Kirki\Field\Color_Palette(
 	[
-		'settings'    => 'color_palette_setting__a100',
+		'settings'    => 'kirki_demo_color_palette_a100',
 		'label'       => esc_html__( 'Material Design Colors — A100', 'kirki' ),
 		'description' => esc_html__( 'Showing "A100" variant of material design colors', 'kirki' ),
 		'section'     => 'color_palette_section',
@@ -600,10 +607,10 @@ new \Kirki\Field\Color_Palette(
 );
 
 Kirki::add_field(
-	'kirki_test_config',
+	'kirki_demo_config',
 	[
 		'type'        => 'color-palette',
-		'settings'    => 'color_palette_setting__old',
+		'settings'    => 'kirki_demo_color_palette_old',
 		'label'       => 'The Old Way',
 		'description' => 'Using `Kirki::add_field` in round shape',
 		'section'     => 'color_palette_section',
@@ -654,7 +661,7 @@ add_action(
 );
 
 Kirki::add_field(
-	'kirki_test_config',
+	'kirki_demo_config',
 	[
 		'type'        => 'kirki-demo-custom-control',
 		'settings'    => 'kirki_demo_custom_control_old_way',
@@ -672,7 +679,7 @@ Kirki::add_field(
  */
 new \Kirki\Field\Dashicons(
 	[
-		'settings'    => 'dashicons_setting_0',
+		'settings'    => 'kirki_demo_dashicons_setting_0',
 		'label'       => esc_html__( 'Dashicons Control', 'kirki' ),
 		'description' => esc_html__( 'Using a custom array of dashicons', 'kirki' ),
 		'section'     => 'dashicons_section',
@@ -691,7 +698,7 @@ new \Kirki\Field\Dashicons(
 
 new \Kirki\Field\Dashicons(
 	[
-		'settings'    => 'dashicons_setting_1',
+		'settings'    => 'kirki_demo_dashicons_setting_1',
 		'label'       => esc_html__( 'All Dashicons', 'kirki' ),
 		'description' => esc_html__( 'Showing all dashicons', 'kirki' ),
 		'section'     => 'dashicons_section',
@@ -704,9 +711,9 @@ new \Kirki\Field\Dashicons(
  */
 new \Kirki\Field\Dimension(
 	[
-		'settings'    => 'dimension_0',
+		'settings'    => 'kirki_demo_dimension_0',
 		'label'       => esc_html__( 'Dimension Control', 'kirki' ),
-		'description' => esc_html__( 'Description Here.', 'kirki' ),
+		'description' => esc_html__( 'A simple dimension control.', 'kirki' ),
 		'section'     => 'dimension_section',
 		'default'     => '10px',
 		'choices'     => [
@@ -720,9 +727,9 @@ new \Kirki\Field\Dimension(
  */
 new \Kirki\Field\Dimensions(
 	[
-		'settings'    => 'dimensions_0',
-		'label'       => esc_html__( 'Dimension Control', 'kirki' ),
-		'description' => esc_html__( 'Description Here.', 'kirki' ),
+		'settings'    => 'kirki_demo_dimensions_0',
+		'label'       => esc_html__( 'Dimensions Control', 'kirki' ),
+		'description' => esc_html__( 'Sample of dimensions control with 2 fields.', 'kirki' ),
 		'section'     => 'dimensions_section',
 		'default'     => [
 			'width'  => '100px',
@@ -733,9 +740,9 @@ new \Kirki\Field\Dimensions(
 
 new \Kirki\Field\Dimensions(
 	[
-		'settings'    => 'dimensions_1',
+		'settings'    => 'kirki_demo_dimensions_1',
 		'label'       => esc_html__( 'Dimension Control', 'kirki' ),
-		'description' => esc_html__( 'Description Here.', 'kirki' ),
+		'description' => esc_html__( 'Sample of dimensions control with 4 fields.', 'kirki' ),
 		'section'     => 'dimensions_section',
 		'default'     => [
 			'padding-top'    => '1em',
@@ -748,9 +755,9 @@ new \Kirki\Field\Dimensions(
 
 new \Kirki\Field\Dimensions(
 	[
-		'settings'    => 'padding_0',
+		'settings'    => 'kirki_demo_padding',
 		'label'       => esc_html__( 'Padding Control', 'kirki' ),
-		'description' => esc_html__( 'Please set the padding for the element.', 'kirki' ),
+		'description' => esc_html__( 'Sample of padding controls with 3 fields.', 'kirki' ),
 		'section'     => 'dimensions_section',
 		'default'     => [
 			'top'        => '1em',
@@ -762,9 +769,9 @@ new \Kirki\Field\Dimensions(
 
 new \Kirki\Field\Dimensions(
 	[
-		'settings'    => 'spacing_0',
+		'settings'    => 'kirki_demo_spacing',
 		'label'       => esc_html__( 'Spacing Control', 'kirki' ),
-		'description' => esc_html__( 'Please set the spacing for the element.', 'kirki' ),
+		'description' => esc_html__( 'Sample of spacing controls with 4 fields.', 'kirki' ),
 		'section'     => 'dimensions_section',
 		'default'     => [
 			'top'    => '1em',
@@ -780,9 +787,9 @@ new \Kirki\Field\Dimensions(
  */
 new \Kirki\Field\Dropdown_Pages(
 	[
-		'settings'    => 'dropdown-pages',
+		'settings'    => 'kirki_demo_dropdown_pages',
 		'label'       => esc_html__( 'Dropdown Pages Control', 'kirki' ),
-		'description' => esc_html__( 'Description Here.', 'kirki' ),
+		'description' => esc_html__( 'Sample of dropdown pages control.', 'kirki' ),
 		'section'     => 'dropdown_pages_section',
 		'default'     => [
 			'width'  => '100px',
@@ -796,7 +803,7 @@ new \Kirki\Field\Dropdown_Pages(
  */
 new \Kirki\Field\Text(
 	[
-		'settings'        => 'generic_text_setting',
+		'settings'        => 'kirki_demo_generic_text',
 		'label'           => esc_html__( 'Generic Control — Text Field', 'kirki' ),
 		'description'     => esc_html__( 'The demo of this control has partial refresh with transport is postMessage', 'kirki' ),
 		'section'         => 'generic_section',
@@ -806,7 +813,7 @@ new \Kirki\Field\Text(
 			'generic_text_refresh' => [
 				'selector'        => '.kirki-partial-refresh-demo',
 				'render_callback' => function() {
-					$value = get_theme_mod( 'generic_text_setting' );
+					$value = get_theme_mod( 'kirki_demo_generic_text' );
 					return $value ? 'value of Generic URL Field control is: ' . $value : '';
 				},
 			],
@@ -816,7 +823,7 @@ new \Kirki\Field\Text(
 
 new \Kirki\Field\URL(
 	[
-		'settings'        => 'generic_url_setting',
+		'settings'        => 'kirki_demo_generic_url',
 		'label'           => esc_html__( 'Generic Control — URL Field', 'kirki' ),
 		'description'     => esc_html__( 'The demo of this control has partial refresh without transport is defined', 'kirki' ),
 		'section'         => 'generic_section',
@@ -825,7 +832,7 @@ new \Kirki\Field\URL(
 			'generic_text_refresh2' => [
 				'selector'        => '.kirki-partial-refresh-demo2',
 				'render_callback' => function() {
-					$value = get_theme_mod( 'generic_url_setting' );
+					$value = get_theme_mod( 'kirki_demo_generic_url' );
 					return $value ? 'value of Generic URL Field control is: ' . $value : '';
 				},
 			],
@@ -835,7 +842,7 @@ new \Kirki\Field\URL(
 
 new \Kirki\Field\Textarea(
 	[
-		'settings'    => 'generic_textarea_setting',
+		'settings'    => 'kirki_demo_generic_textarea',
 		'label'       => esc_html__( 'Generic Control — Textarea Field', 'kirki' ),
 		'description' => esc_html__( 'Description', 'kirki' ),
 		'section'     => 'generic_section',
@@ -845,7 +852,7 @@ new \Kirki\Field\Textarea(
 
 new \Kirki\Field\Generic(
 	[
-		'settings'    => 'generic_custom_setting',
+		'settings'    => 'kirki_demo_generic_custom',
 		'label'       => esc_html__( 'Generic Control — Custom Input.', 'kirki' ),
 		'description' => esc_html__( 'The "generic" control allows you to add any input type you want. In this case we use type="password" and define custom styles.', 'kirki' ),
 		'section'     => 'generic_section',
@@ -864,9 +871,9 @@ new \Kirki\Field\Generic(
  */
 new \Kirki\Field\Image(
 	[
-		'settings'    => 'image_setting_url',
+		'settings'    => 'kirki_demo_image_url',
 		'label'       => esc_html__( 'Image Control (URL)', 'kirki' ),
-		'description' => esc_html__( 'Description Here.', 'kirki' ),
+		'description' => esc_html__( 'The saved value will be the URL.', 'kirki' ),
 		'section'     => 'image_section',
 		'default'     => '',
 	]
@@ -874,9 +881,9 @@ new \Kirki\Field\Image(
 
 new \Kirki\Field\Image(
 	[
-		'settings'    => 'image_setting_id',
+		'settings'    => 'kirki_demo_image_id',
 		'label'       => esc_html__( 'Image Control (ID)', 'kirki' ),
-		'description' => esc_html__( 'Description Here.', 'kirki' ),
+		'description' => esc_html__( 'The saved value will an ID.', 'kirki' ),
 		'section'     => 'image_section',
 		'default'     => '',
 		'choices'     => [
@@ -887,9 +894,9 @@ new \Kirki\Field\Image(
 
 new \Kirki\Field\Image(
 	[
-		'settings'    => 'image_setting_array',
+		'settings'    => 'kirki_demo_image_array',
 		'label'       => esc_html__( 'Image Control (array)', 'kirki' ),
-		'description' => esc_html__( 'Description Here.', 'kirki' ),
+		'description' => esc_html__( 'The saved value will an array.', 'kirki' ),
 		'section'     => 'image_section',
 		'default'     => '',
 		'choices'     => [
@@ -903,9 +910,9 @@ new \Kirki\Field\Image(
  */
 new \Kirki\Field\Upload(
 	[
-		'settings'    => 'upload_setting_url',
+		'settings'    => 'kirki_demo_upload_url',
 		'label'       => esc_html__( 'Upload Control (URL)', 'kirki' ),
-		'description' => esc_html__( 'Description Here.', 'kirki' ),
+		'description' => esc_html__( 'The saved value will the URL.', 'kirki' ),
 		'section'     => 'upload_section',
 		'default'     => '',
 		'transport'   => 'postMessage',
@@ -917,7 +924,7 @@ new \Kirki\Field\Upload(
  */
 new \Kirki\Field\Multicheck(
 	[
-		'settings' => 'multicheck_setting',
+		'settings' => 'kirki_demo_multicheck',
 		'label'    => esc_html__( 'Multickeck Control', 'kirki' ),
 		'section'  => 'multicheck_section',
 		'default'  => [ 'option-1', 'option-3', 'option-4' ],
@@ -937,7 +944,7 @@ new \Kirki\Field\Multicheck(
  */
 new \Kirki\Field\Multicolor(
 	[
-		'settings'  => 'multicolor_setting',
+		'settings'  => 'kirki_demo_multicolor',
 		'label'     => esc_html__( 'Multicolor Control', 'kirki' ),
 		'section'   => 'multicolor_section',
 		'priority'  => 10,
@@ -977,7 +984,7 @@ new \Kirki\Field\Multicolor(
  */
 new \Kirki\Field\Number(
 	[
-		'settings' => 'number_setting',
+		'settings' => 'kirki_demo_number',
 		'label'    => esc_html__( 'Number Control', 'kirki' ),
 		'section'  => 'number_section',
 		'priority' => 10,
@@ -994,7 +1001,7 @@ new \Kirki\Field\Number(
  */
 new \Kirki\Field\Radio(
 	[
-		'settings'    => 'radio_setting',
+		'settings'    => 'kirki_demo_radio',
 		'label'       => esc_html__( 'Radio Control', 'kirki' ),
 		'description' => esc_html__( 'The description here.', 'kirki' ),
 		'section'     => 'radio_section',
@@ -1014,9 +1021,9 @@ new \Kirki\Field\Radio(
  */
 new \Kirki\Field\Radio_Buttonset(
 	[
-		'settings'    => 'radio_buttonset_setting',
+		'settings'    => 'kirki_demo_radio_buttonset',
 		'label'       => esc_html__( 'Radio-Buttonset Control', 'kirki' ),
-		'description' => esc_html__( 'The description here.', 'kirki' ),
+		'description' => esc_html__( 'Sample of radio-buttonset control.', 'kirki' ),
 		'section'     => 'radio_buttonset_section',
 		'default'     => 'option-2',
 		'choices'     => [
@@ -1032,9 +1039,9 @@ new \Kirki\Field\Radio_Buttonset(
  */
 new \Kirki\Field\Radio_Image(
 	[
-		'settings'    => 'radio_image_setting',
+		'settings'    => 'kirki_demo_radio_image',
 		'label'       => esc_html__( 'Radio-Image Control', 'kirki' ),
-		'description' => esc_html__( 'The description here.', 'kirki' ),
+		'description' => esc_html__( 'Sample of radio image control.', 'kirki' ),
 		'section'     => 'radio_image_section',
 		'default'     => 'travel',
 		'choices'     => [
@@ -1050,9 +1057,9 @@ new \Kirki\Field\Radio_Image(
  */
 new \Kirki\Field\Repeater(
 	[
-		'settings'    => 'repeater_setting',
+		'settings'    => 'kirki_demo_repeater',
 		'label'       => esc_html__( 'Repeater Control', 'kirki' ),
-		'description' => esc_html__( 'The description here.', 'kirki' ),
+		'description' => esc_html__( 'Sample of repeater control.', 'kirki' ),
 		'section'     => 'repeater_section',
 		'default'     => [
 			[
@@ -1105,9 +1112,9 @@ new \Kirki\Field\Repeater(
  */
 new \Kirki\Field\Select(
 	[
-		'settings'    => 'select_setting',
+		'settings'    => 'kirki_demo_select',
 		'label'       => esc_html__( 'Select Control', 'kirki' ),
-		'description' => esc_html__( 'The description here.', 'kirki' ),
+		'description' => esc_html__( 'Sample of single mode select control.', 'kirki' ),
 		'section'     => 'select_section',
 		'default'     => 'option-3',
 		'placeholder' => esc_html__( 'Select an option', 'kirki' ),
@@ -1123,9 +1130,9 @@ new \Kirki\Field\Select(
 
 new \Kirki\Field\Select(
 	[
-		'settings'    => 'select_setting_multiple',
+		'settings'    => 'kirki_demo_select_multiple',
 		'label'       => esc_html__( 'Select Control', 'kirki' ),
-		'description' => esc_html__( 'The description here.', 'kirki' ),
+		'description' => esc_html__( 'Sample of multiple mode select control.', 'kirki' ),
 		'section'     => 'select_section',
 		'default'     => 'option-3',
 		'multiple'    => 3,
@@ -1144,9 +1151,9 @@ new \Kirki\Field\Select(
  */
 new \Kirki\Field\Slider(
 	[
-		'settings'    => 'slider_setting',
+		'settings'    => 'kirki_demo_slider',
 		'label'       => esc_html__( 'Slider Control', 'kirki' ),
-		'description' => esc_html__( 'The description here.', 'kirki' ),
+		'description' => esc_html__( 'Sample of slider control.', 'kirki' ),
 		'section'     => 'slider_section',
 		'default'     => '10',
 		'transport'   => 'postMessage',
@@ -1160,12 +1167,12 @@ new \Kirki\Field\Slider(
 );
 
 Kirki::add_field(
-	'kirki_test_config',
+	'kirki_demo_config',
 	[
 		'type'        => 'slider',
-		'settings'    => 'slider_setting_old',
+		'settings'    => 'kirki_demo_slider_old',
 		'label'       => esc_html__( 'Slider Control — Using Old Way', 'kirki' ),
-		'description' => 'Added using `Kirki::add_field`',
+		'description' => 'Added using `Kirki::add_field` (the old Kirki API)',
 		'section'     => 'slider_section',
 		'transport'   => 'postMessage',
 		'choices'     => [
@@ -1181,7 +1188,7 @@ Kirki::add_field(
  */
 new \Kirki\Field\Sortable(
 	[
-		'settings' => 'sortable_setting',
+		'settings' => 'kirki_demo_sortable',
 		'label'    => __( 'This is a sortable control.', 'kirki' ),
 		'section'  => 'sortable_section',
 		'default'  => [ 'option3', 'option1', 'option4' ],
@@ -1201,7 +1208,7 @@ new \Kirki\Field\Sortable(
  */
 new \Kirki\Field\Checkbox_Switch(
 	[
-		'settings'    => 'switch_setting',
+		'settings'    => 'kirki_demo_switch',
 		'label'       => esc_html__( 'Switch Field', 'kirki' ),
 		'description' => esc_html__( 'Simple switch control', 'kirki' ),
 		'section'     => 'switch_section',
@@ -1212,7 +1219,7 @@ new \Kirki\Field\Checkbox_Switch(
 
 new \Kirki\Field\Checkbox_Switch(
 	[
-		'settings'        => 'switch_setting_custom_label',
+		'settings'        => 'kirki_demo_switch_custom_label',
 		'label'           => esc_html__( 'Switch Field — With custom labels', 'kirki' ),
 		'description'     => esc_html__( 'Switch control using custom labels', 'kirki' ),
 		'section'         => 'switch_section',
@@ -1223,7 +1230,7 @@ new \Kirki\Field\Checkbox_Switch(
 		],
 		'active_callback' => [
 			[
-				'setting'  => 'switch_setting',
+				'setting'  => 'kirki_demo_switch',
 				'operator' => '==',
 				'value'    => true,
 			],
@@ -1235,10 +1242,10 @@ new \Kirki\Field\Checkbox_Switch(
  * Toggle control.
  */
 Kirki::add_field(
-	'kirki_test_config',
+	'kirki_demo_config',
 	[
 		'type'        => 'toggle',
-		'settings'    => 'toggle_setting',
+		'settings'    => 'kirki_demo_toggle_setting',
 		'label'       => esc_html__( 'Toggle Field', 'kirki' ),
 		'description' => esc_html__( 'Toggle is just utilizing switch control but aligned horizontally & without the text', 'kirki' ),
 		'section'     => 'toggle_section',
@@ -1253,7 +1260,7 @@ Kirki::add_field(
  */
 new \Kirki\Field\Typography(
 	[
-		'settings'    => 'kirki_typography_setting',
+		'settings'    => 'kirki_demo_kirki_typography_setting',
 		'label'       => esc_html__( 'Typography Control', 'kirki' ),
 		'description' => esc_html__( 'The full set of options.', 'kirki' ),
 		'section'     => 'typography_section',
@@ -1307,7 +1314,7 @@ new \Kirki\Field\Typography(
 
 new \Kirki\Field\Typography(
 	[
-		'settings'    => 'typography_setting_1',
+		'settings'    => 'kirki_demo_typography_setting_1',
 		'label'       => esc_html__( 'Typography Control', 'kirki' ),
 		'description' => esc_html__( 'Just the font-family and font-weight.', 'kirki' ),
 		'section'     => 'typography_section',
@@ -1343,7 +1350,7 @@ function kirki_sidebars_select_example() {
 	}
 	new \Kirki\Field\Select(
 		[
-			'settings'    => 'sidebars_select',
+			'settings'    => 'kirki_demo_sidebars_select',
 			'label'       => esc_html__( 'Sidebars Select', 'kirki' ),
 			'description' => esc_html__( 'An example of how to implement sidebars selection.', 'kirki' ),
 			'section'     => 'select_section',
@@ -1353,4 +1360,4 @@ function kirki_sidebars_select_example() {
 		]
 	);
 }
-// add_action( 'init', 'kirki_sidebars_select_example', 999 );
+add_action( 'init', 'kirki_sidebars_select_example', 999 );
